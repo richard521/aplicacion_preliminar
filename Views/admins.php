@@ -1,4 +1,4 @@
-<?php 
+<?php
 	include ("../Model/usuario.class.php");
 	include ("../Model/dbconn.php");
 	$user = usuario::ReadAdm();
@@ -43,18 +43,13 @@
         var keynum = window.event ? window.event.keyCode : e.which;
         if ((keynum == 8) || (keynum == 46))
         return true;
-         
+
         return /\d/.test(String.fromCharCode(keynum));
         }
 	  </script>-->
 	<title>Registro administradores</title>
-  <nav class="grey darken-1">
-    <div class="nav-wrapper">
-      <a href="pruebahome.php" class="brand-logo" id="titulo">Fusion-Look</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <!--<li><a href="login.php">Iniciar sesión</a></li>-->
-      </ul>
-    </div>
+	<nav class="cyan darken-1">
+    <?php include_once("../Model/menu.php"); ?>
   </nav>
 </head>
 <body>
@@ -72,7 +67,7 @@
 												echo'<option value="'.$fila["Id_usuario"].'">'.$fila["Nombre"].'</option>';
 											}
 										?>
-										
+
 								</select>
 								<label>Usuario</label>
 							</div>
@@ -80,31 +75,31 @@
 								<button class="waves-effect waves-light  btn right cyan darken-1" name="acc" value="C" onclick="return valida()">Enviar</button>
 							</div>
 						</article>
-				
+
 			</form>
-			
+
 		</div>
 	</section>
-
-	<!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
-      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-      <script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
-	  <script type="text/javascript">
-	  	$(document).ready(function() {
-    	$('select').material_select();
-  		});
-	  </script>
-	  <script type="text/javascript">
-	  		$(document).ready(function()
-	  		{
-	  			<?php 
-	  				if(isset($_GET["msn"]) and isset($_GET["t"]))
-	  				{
-	  					echo "swal('".$_GET["msn"]."','','".$_GET["t"]."');";
-	  				}
-	  			 ?>
-	  		});
-	  </script>
+<?php include '../Model/comp_footer.php'; ?>
 </body>
+<!--Import jQuery before materialize.js-->
+		<script type="text/javascript" src="js/jquery-1.12.3.js"></script>
+		<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+		<script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		$('select').material_select();
+		});
+	</script>
+	<script type="text/javascript">
+			$(document).ready(function()
+			{
+				<?php
+					if(isset($_GET["msn"]) and isset($_GET["t"]))
+					{
+						echo "swal('".$_GET["msn"]."','','".$_GET["t"]."');";
+					}
+				 ?>
+			});
+	</script>
 </html>

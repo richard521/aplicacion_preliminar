@@ -19,7 +19,7 @@
 		header("Location: gestionciudad.php?m=".$mensaje);
 	}
 	include ("../Model/departamento.class.php");
-$departamento = departamento::ReadAll(); 
+$departamento = departamento::ReadAll();
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,7 +38,7 @@ $departamento = departamento::ReadAll();
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>Editar ciudad</title>
   <nav>
-    <?php 
+    <?php
     	include_once("../Model/menu.php");
      ?>
   </nav>
@@ -61,7 +61,7 @@ $departamento = departamento::ReadAll();
 												echo'<option value="'.$fila["Id_departamento"].'">'.$fila["Nombre"].'</option>';
 											}
 										?>
-										
+
 								</select>
 								<label>Departamento</label>
 							<div class="input-field col s12">
@@ -72,21 +72,22 @@ $departamento = departamento::ReadAll();
 								<a href="pruebahome.php" class="waves-effect waves-light btn red darken-1 left tooltipped" data-tooltip="Volver" data-position="top">Cancelar</a>
 								<button class="waves-effect waves-light  btn right cyan darken-1 tooltipped" data-tooltip="Modificar" data-position="top" name="acc" value="U">Enviar</button>
 						</article>
-				
+
 			</form>
 			<?php echo @$_GET["msn"]; ?>
 		</div>
 	</section>
-		
+
 
 	<!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
       <script type="text/javascript" src="materialize/js/materialize.js"></script>
-      <script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>	
+      <script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
       <script type="text/javascript">
 	  	$(document).ready(function() {
     	$('select').material_select();
   		});
 	 </script>
+	 <?php include '../Model/comp_footer.php'; ?>
 </body>
 </html>

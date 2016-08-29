@@ -1,4 +1,4 @@
-<?php 
+<?php
 	session_start();
  ?>
 <!DOCTYPE html>
@@ -41,7 +41,7 @@
         var keynum = window.event ? window.event.keyCode : e.which;
         if ((keynum == 8) || (keynum == 46))
         return true;
-         
+
         return /\d/.test(String.fromCharCode(keynum));
         }
 	  </script>
@@ -111,20 +111,22 @@
 								<button class="waves-effect waves-light  btn right cyan darken-1" name="acc" value="C" onclick="return valida()">Enviar</button>
 							</div>
 						</article>
-				
+
 			</form>
-			
+
 		</div>
 	</section>
 
-	<!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
-      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-      <script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
-	  <script type="text/javascript">
-	  	$(document).ready(function() {
-    	$('select').material_select();
-  		});
-	  </script>
+
+      <?php include '../Model/comp_footer.php'; ?>
 </body>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="js/jquery-1.12.3.js"></script>
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+<script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+$('select').material_select();
+});
+</script>
 </html>

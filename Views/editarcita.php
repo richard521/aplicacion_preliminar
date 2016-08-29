@@ -55,7 +55,7 @@
 												echo'<option value="'.$fila["Id_empleado"].'">'.$fila["Nombre"].'</option>';
 											}
 										?>
-										
+
 								</select>
 								<label>Empleado</label>
 							</div>
@@ -75,25 +75,26 @@
 								<button class="waves-effect waves-light  btn right cyan darken-1 tooltipped" data-tooltip="Modificar" data-position="top" name="acc" value="U">Enviar</button>
 							</div>
 						</article>
-				
+
 			</form>
 			<!--<?php //echo @$_GET["msn"]; ?>-->
 		</div>
 	</section>
-		
+
 
 	<!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
-      <script type="text/javascript" src="materialize/js/materialize.js"></script>	
+      <script type="text/javascript" src="materialize/js/materialize.js"></script>
       <script type="text/javascript">
       	$('.datepicker').pickadate({
     		selectMonths: true,
-    		selectYears: 15 
+    		selectYears: 15
   		});
   		$(document).ready(function() {
     	$('select').material_select();
   		});
       </script>
       <script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
+			<?php include '../Model/comp_footer.php'; ?>
 </body>
 </html>

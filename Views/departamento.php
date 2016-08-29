@@ -1,4 +1,4 @@
-<?php 
+<?php
 	session_start();
 
  ?>
@@ -19,7 +19,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>Agregar departamento</title>
   <nav>
-    <?php 
+    <?php
  		include_once("../Model/menu.php");
     ?>
   </nav>
@@ -38,13 +38,13 @@
 							<br>
 								<a href="<?=$_SERVER['HTTP_REFERER'] ?>" class="waves-effect waves-light btn red darken-1 left tooltipped" data-tooltip="Volver" data-position="top">Cancelar</a>
 								<button class="waves-effect waves-light  btn right cyan darken-1 tooltipped" data-tooltip="Crear" data-position="top" name="acc" value="C">Enviar</button>
-							
+
 						</article>
-				
+
 			</form>
 		</div>
 	</section>
-		
+
 
 	<!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
@@ -56,5 +56,6 @@
         $(".button-collapse").sideNav();
         });
   	</script>
+		<?php include '../Model/comp_footer.php'; ?>
 </body>
 </html>

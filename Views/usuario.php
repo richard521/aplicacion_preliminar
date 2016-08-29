@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>  
+<html>
 <head>
 	  <meta charset="utf-8">
 	  <link rel="stylesheet" type="text/css" href="estilos/estilos_index.css">
@@ -38,7 +38,7 @@
         var keynum = window.event ? window.event.keyCode : e.which;
         if ((keynum == 8) || (keynum == 46))
         return true;
-        
+
         return /\d/.test(String.fromCharCode(keynum));
         }
 	  </script>
@@ -119,12 +119,12 @@
 								<button class="waves-effect waves-light  btn right cyan darken-1" name="acc" value="C" onclick="return valida()">Enviar</button>
 							</div>
 						</article>
-				
+
 			</form>
-			
+
 		</div>
 	</section>
-	
+
 	<!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
       <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
@@ -137,7 +137,7 @@
 	  <script type="text/javascript">
 	  		$(document).ready(function()
 	  		{
-	  			<?php 
+	  			<?php
 	  				if(isset($_GET["msn"]))
 	  				{
 	  					echo "swal('".$_GET["msn"]."','','error');";
@@ -145,5 +145,6 @@
 	  			 ?>
 	  		})
 	  </script>
+		<?php include '../Model/comp_footer.php'; ?>
 </body>
 </html>

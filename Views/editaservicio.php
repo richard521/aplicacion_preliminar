@@ -25,11 +25,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Modificar servicio</title>
   <nav class="cyan darken-1">
-    <div class="nav-wrapper">
-      <a href="pruebahome.php" class="brand-logo" id="titulo">Fusion-Look</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-      </ul>
-    </div>
+    <?php include_once("../Model/menu.php"); ?>
   </nav>
 </head>
 <body>
@@ -60,16 +56,17 @@
                 <button class="waves-effect waves-light  btn right cyan darken-1 tooltipped" name="acc" value="U" data-tooltip="Modificar" data-position="top">Enviar</button>
               </div>
             </article>
-        
+
       </form>
       <!--<?//php echo @$_GET["msn"]; ?>-->
     </div>
   </section>
-    
+
 
   <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
       <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
       <script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
+      <?php include '../Model/comp_footer.php'; ?>
 </body>
 </html>

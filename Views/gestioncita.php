@@ -56,7 +56,7 @@
       <?php
 
       $cita = cita::ReadAll();
-      foreach ($cita as $row) {    
+      foreach ($cita as $row) {
       echo "<tr>
                 <td>".$row["Id_cita"]."</td>
                 <td>".$row["Id_usuario"]."</td>
@@ -76,13 +76,14 @@
         </tbody>
     </table>
 
-      <script type="text/javascript" src="materialize/js/materialize.js"></script>
-      <script type="text/javascript">
-      $(document).ready(function() {
-      $('select').material_select();
-      });
-      </script>
-      <script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
-  </body>
 
+			<?php include_once("../Model/comp_footer.php"); ?>
+  </body>
+	<script type="text/javascript" src="materialize/js/materialize.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+	$('select').material_select();
+	});
+	</script>
+	<script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
 </html>

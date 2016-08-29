@@ -72,8 +72,8 @@
               <li><a href="#" class="dropdown-button" data-activates="centros">Centros de servicio</a></li>
               <li><a href="#" class="dropdown-button" data-activates="empleados">Empleados</a></li>
               <li><a href="gestioncita.php">Citas</a></li>
-              <!--<li><a href="servicio.php">Servicios</a></li>
-              <li><a href="tipo_servicio.php">Tipos de servicio</a></li>-->
+              <li><a href="servicio.php" class="dropdown-button" data-activates="servicios">Servicios</a></li>
+              <li><a href="tipo_servicio.php" class="dropdown-button" data-activates="tiposer">Tipos de servicio</a></li>
               <li><a href="#" class="dropdown-button" data-activates="perfil">Mi perfil</a></li>
               <li><a href="../Model/cerrarsesion.php">Cerrar sesion</a></li>
             </ul>

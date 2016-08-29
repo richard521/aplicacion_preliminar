@@ -4,7 +4,7 @@
 	include ("../Model/centro_servicio.class.php");
 	include ("../Model/dbconn.php");
 	$empleado = empleado::ReadInner();
-	$centro = centro_servicio::ReadAll(); 
+	$centro = centro_servicio::ReadAll();
 	/*$id_us = $_SESSION["Id_usuario"];
 	$no_us = $_SESSION["Nombre"];*/
 ?>
@@ -42,13 +42,13 @@
 												echo'<option value="'.$fila["Id_centro"].'">'.$fila["Nombre"].'</option>';
 											}
 										?>
-										
+
 								</select>
 								<label>Centro de servicio</label>
 							</div>
 							<div class="input-field col s12">
 								<select name="Id_usuario">
-									<?php 
+									<?php
 										echo '<option value="'.($_SESSION["Id_usuario"]).'">'.($_SESSION["Nombre"]).'</option>';
 									 ?>
 								</select>
@@ -61,7 +61,7 @@
 												echo'<option value="'.$fila["Id_empleado"].'">'.$fila["Nombre"].'</option>';
 											}
 										?>
-										
+
 								</select>
 								<label>Empleado</label>
 							</div>
@@ -72,32 +72,32 @@
 							<div class="input-field col s12">
 								<input type="time" name="hora" class="validate" required>
 								<!--<label for="Hora">Hora cita</label>-->
-							</div> 
+							</div>
 							<br>
 								<a href="pruebahome.php" class="waves-effect waves-light btn red darken-1 left tooltipped" data-tooltip="Volver" data-position="top">Cancelar</a>
 								<button class="waves-effect waves-light  btn right cyan darken-1 tooltipped" data-tooltip="Agendar" data-position="top" name="acc" value="C">Enviar</button>
 							</div>
 						</article>
-				
+
 			</form>
 			<?php echo @$_GET["msn"]; ?>
 		</div>
 	</section>
-		
+
 
 	<!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
-      <script type="text/javascript" src="materialize/js/materialize.js"></script>	
+      <script type="text/javascript" src="materialize/js/materialize.js"></script>
       <script type="text/javascript">
       	$('.datepicker').pickadate({
     		selectMonths: true,
-    		selectYears: 15 
+    		selectYears: 15
   		});
   		$(document).ready(function() {
     	$('select').material_select();
   		});
       </script>
       <script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
-      
+      <?php include '../Model/comp_footer.php'; ?>
 </body>
 </html>

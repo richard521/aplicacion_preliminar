@@ -1,4 +1,4 @@
-<?php 
+<?php
 	session_start();
 	include ("../Model/usuario.class.php");
 	include ("../Model/centro_servicio.class.php");
@@ -12,7 +12,7 @@
 	$user = usuario::Reademp();
 	$servicio = servicio::ReadAll();
 	$centro = centro_servicio::ReadAll();
-?> 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +55,7 @@
 												echo'<option value="'.$fila["Id_centro"].'">'.$fila["Nombre"].'</option>';
 											}
 										?>
-										
+
 								</select>
 								<select name="Id_servicio">
 										<?php
@@ -63,7 +63,7 @@
 												echo'<option value="'.$fila["Id_servicio"].'">'.$fila["Nombre"].'</option>';
 											}
 										?>
-										
+
 								</select>
 								<div class="input-field col s12">
 									<input type="text" id="Inicio" name="Inicio" class="validate" onkeypress="return validar(event)">
@@ -77,12 +77,12 @@
 									<button class="waves-effect waves-light  btn right cyan darken-1" name="acc" value="C" onclick="return valida()">Enviar</button>
 								</div>
 						</article>
-				
+
 			</form>
-			
+
 		</div>
 	</section>
-		
+
 
 	<!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
@@ -93,5 +93,6 @@
     	$('select').material_select();
   		});
 	  </script>
+		<?php include '../Model/comp_footer.php'; ?>
 </body>
 </html>

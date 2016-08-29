@@ -1,8 +1,8 @@
 <?php
 	session_start();
 	include ("../Model/departamento.class.php");
-	include ("../Model/dbconn.php"); 
-	$departamento = departamento::ReadAll(); 
+	include ("../Model/dbconn.php");
+	$departamento = departamento::ReadAll();
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +21,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title>Registro ciudad</title>
   <nav>
-    <?php 
+    <?php
     	include_once("../Model/menu.php");
      ?>
   </nav>
@@ -40,7 +40,7 @@
 												echo'<option value="'.$fila["Id_departamento"].'">'.$fila["Nombre"].'</option>';
 											}
 										?>
-										
+
 								</select>
 								<label>Departamento</label>
 							</div>
@@ -51,20 +51,21 @@
 							<a href="<?=$_SERVER['HTTP_REFERER'] ?>" class="waves-effect waves-light btn red darken-1 left tooltipped" data-tooltip="Volver" data-position="top">Cancelar</a>
 							<button class="waves-effect waves-light  btn right cyan darken-1 tooltipped" data-tooltip="Crear" data-position="top" name="acc" value="C">Enviar</button>
 						</article>
-				
+
 			</form>
 		</div>
 	</section>
-		
+
 
 	<!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
       <script type="text/javascript" src="materialize/js/materialize.js"></script>
-      <script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>	
+      <script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
       <script type="text/javascript">
 	  	$(document).ready(function() {
     	$('select').material_select();
   		});
 	 </script>
+	 <?php include '../Model/comp_footer.php'; ?>
 </body>
 </html>

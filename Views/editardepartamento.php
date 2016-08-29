@@ -58,15 +58,16 @@
 								<a href="pruebainicio.php" class="waves-effect waves-light btn red darken-1 left tooltipped" data-tooltip="Volver" data-position="top">Cancelar</a>
 								<button class="waves-effect waves-light  btn right cyan darken-1 tooltipped" data-tooltip="Modificar" data-position="top" name="acc" value="U">Enviar</button>
 						</article>
-				
+
 			</form>
 		</div>
 	</section>
-		
+
 
 	<!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
       <script type="text/javascript" src="materialize/js/materialize.js"></script>
-      <script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>	
+      <script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
+			<?php include '../Model/comp_footer.php'; ?>
 </body>
 </html>

@@ -104,12 +104,12 @@
 								<button class="waves-effect waves-light  btn right cyan darken-1 tooltipped" name="acc" value="U" data-tooltip="Modificar" data-position="top">Enviar</button>
 							</div>
 						</article>
-				
+
 			</form>
-			
+
 		</div>
 	</section>
-		
+
 
 	<!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
@@ -120,5 +120,6 @@
     	$('select').material_select();
   		});
 	  </script>
+		<?php include '../Model/comp_footer.php'; ?>
 </body>
 </html>

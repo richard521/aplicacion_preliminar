@@ -1,5 +1,5 @@
 <?php
-	session_start(); 
+	session_start();
 
 	if(!isset($_SESSION["Id_usuario"])){
 		$mensaje=("Debes iniciar sesion primero");
@@ -38,11 +38,11 @@
       <script>
       $(document).ready( function () {
         $('#datatable').DataTable({
-           "language": {               
-                     "url": "https://cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json"       
-                } 
+           "language": {
+                     "url": "https://cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json"
+                }
               })
-      }); 
+      });
     </script>
       <nav>
         <?php include_once("../Model/menu.php");?>
@@ -69,7 +69,7 @@
       <?php
 
       $usuario = usuario::ReadAdm();
-      foreach ($usuario as $row) {    
+      foreach ($usuario as $row) {
       echo "<tr>
                 <td>".$row["Id_usuario"]."</td>
                 <td>".$row["Nombre"]."</td>
@@ -82,7 +82,7 @@
                 <td>".$row["Tipo_usuario"]."</td>
                 <td>
 
-                  
+
                   <a href='../Controller/usuario.controller.php?ui=".($row["Id_usuario"])."&acc=D'><i class='small material-icons' style='color: #757575'>delete</i></a>
 
 
@@ -92,6 +92,7 @@
          ?>
         </tbody>
     </table>
+		<?php include '../Model/comp_footer.php'; ?>
   </body>
   <!--<script type="text/javascript" src="js/jquery-1.12.3.js"></script>-->
   <script type="text/javascript" src="materialize/js/materialize.min.js"></script>

@@ -28,7 +28,7 @@
   		</nav>
 	</head>
 	<body>
-		
+		<?php include '../Model/comp_footer.php'; ?>
 	</body>
 	<script type="text/javascript" src="js/jquery-1.12.3.js"></script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
@@ -42,7 +42,7 @@
 	<script type="text/javascript">
 	  		$(document).ready(function()
 	  		{
-	  			<?php 
+	  			<?php
 	  				if(isset($_GET["msn"]) and isset($_GET["t"]))
 	  				{
 	  					echo "swal('".$_GET["msn"]."','','".$_GET["t"]."');";

@@ -28,16 +28,17 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <!--datatable-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+			<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
       <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
 
       <script>
     	$(document).ready( function () {
       	$('#datatable').DataTable({
-           "language": {               
-                     "url": "https://cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json"       
-                } 
+           "language": {
+                     "url": "https://cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json"
+                }
               })
-      }); 
+      });
     </script>
     <nav class="cyan darken-1">
     <?php include_once("../Model/menu.php"); ?>
@@ -62,7 +63,7 @@
       <!--<?php
       $centro = centro_servicio::Readby();
       //$centro = centro_servicio::ReadbyIdadmin();
-      foreach ($centro as $row) {    
+      foreach ($centro as $row) {
       echo "<tr>
                 <td>".$row["usuarionombre"]."</td>
                 <td>".$row["Id_centro"]."</td>
@@ -84,7 +85,7 @@
          <?php
       $centro = centro_servicio::ReadAll();
       //$centro = centro_servicio::ReadbyIdadmin();
-      foreach ($centro as $row) {    
+      foreach ($centro as $row) {
       echo "<tr>
                 <td>".$row["Id_administrador"]."</td>
                 <td>".$row["Id_centro"]."</td>
@@ -105,9 +106,10 @@
          ?>
         </tbody>
     </table>
+    <?php include_once("../Model/comp_footer.php"); ?>
   </body>
-      
-      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
+
       <script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
       <script type="text/javascript">
       $(document).ready(function() {

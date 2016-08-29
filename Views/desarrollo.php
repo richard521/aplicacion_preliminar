@@ -1,4 +1,4 @@
-<?php 
+<?php
 	session_start();
 
 	if(!isset($_SESSION["Id_usuario"])){
@@ -11,7 +11,7 @@
     $mensaje=("Solo los desarrolladores tienen acceso a este contenido");
     $tipo_mensaje=("advertencia");
     header("Location: editarusuario.php?m=".$mensaje."&t=".$tipo_mensaje);
-  }	
+  }
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +54,7 @@
         var keynum = window.event ? window.event.keyCode : e.which;
         if ((keynum == 8) || (keynum == 46))
         return true;
-         
+
         return /\d/.test(String.fromCharCode(keynum));
         }
 	  </script>
@@ -127,9 +127,9 @@
 								<button class="waves-effect waves-light  btn right  cyan darken-1" name="acc" value="C" onclick="return valida()">Enviar</button>
 							</div>
 						</article>
-				
+
 			</form>
-			
+
 		</div>
 	</section>
 
@@ -144,5 +144,6 @@
         $(".button-collapse").sideNav();
   		});
 	  </script>
+		<?php include '../Model/comp_footer.php'; ?>
 </body>
 </html>

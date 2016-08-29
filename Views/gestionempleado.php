@@ -1,5 +1,5 @@
 <?php
-	session_start(); 
+	session_start();
 
 	if(!isset($_SESSION["Id_usuario"])){
 		$mensaje=("Debes iniciar sesion primero");
@@ -37,11 +37,11 @@
       <script>
       $(document).ready( function () {
         $('#datatable').DataTable({
-           "language": {               
-                     "url": "https://cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json"       
-                } 
+           "language": {
+                     "url": "https://cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json"
+                }
               })
-      }); 
+      });
     </script>
       <nav>
         <?php include_once("../Model/menu.php");?>
@@ -69,7 +69,7 @@
       <?php
 
       $empleado = empleado::Readin();
-      foreach ($empleado as $row) {   
+      foreach ($empleado as $row) {
       echo "<tr>
                 <td>".$row["Id_empleado"]."</td>
                 <td>".$row["Inicio"]."</td>
@@ -81,8 +81,8 @@
                 <td>".$row["Sexo"]."</td>
                 <td>".$row["nombreservicio"]."</td>
                 <td>".$row["nombrecentro"]."</td>
-                
-              </tr>"; 
+
+              </tr>";
       /*echo "<tr>
                 <td>".$row["Id_empleado"]."</td>
                 <td>".$row["Nombre"]."</td>
@@ -102,11 +102,12 @@
 
                 </td>-->
               </tr>";*/
-              
+
           }
          ?>
         </tbody>
     </table>
+		<?php include '../Model/comp_footer.php'; ?>
   </body>
   <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
   <script type="text/javascript" src="materialize/js/materialize.min.js"></script>

@@ -32,11 +32,11 @@
       <script>
       $(document).ready( function () {
         $('#datatable').DataTable({
-           "language": {               
-                     "url": "https://cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json"       
-                } 
+           "language": {
+                     "url": "https://cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json"
+                }
               })
-      }); 
+      });
     </script>
       <nav>
         <?php include_once("../Model/menu.php");?>
@@ -63,7 +63,7 @@
       <?php
 
       $usuario = usuario::ReadUse();
-      foreach ($usuario as $row) {    
+      foreach ($usuario as $row) {
       echo "<tr>
                 <td>".$row["Id_usuario"]."</td>
                 <td>".$row["Nombre"]."</td>
@@ -86,9 +86,10 @@
          ?>
         </tbody>
     </table>
+		<?php include '../Model/comp_footer.php'; ?>
   </body>
   <!--<script type="text/javascript" src="js/jquery-1.12.3.js"></script>-->
-  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+  <!-- <script type="text/javascript" src="materialize/js/materialize.min.js"></script> -->
   <script type="text/javascript">
         $(document).ready(function() {
         $(".dropdown-button").dropdown();

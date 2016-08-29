@@ -34,6 +34,9 @@
       	$('#datatable').DataTable();
     	});
     </script>
+		<nav class="cyan darken-1">
+	    <?php include_once("../Model/menu.php"); ?>
+	  </nav>
     </head>
   	<body>
     <h1>Gestion de servicios</h1>
@@ -72,5 +75,6 @@
          ?>
         </tbody>
     </table>
+		<?php include '../Model/comp_footer.php'; ?>
   </body>
 </html>

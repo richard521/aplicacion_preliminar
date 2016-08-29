@@ -1,11 +1,11 @@
-<?php 
+<?php
 	session_start();
 
 	if($_SESSION["Tipo_usuario"] != "Administrador"){
 		$mensaje="lo sentimos usted no puede agregar empleados";
 		header("Location: ../index.php?m=$mensaje");
 	}
-?> 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,12 +88,12 @@
 								<button class="waves-effect waves-light  btn right cyan darken-1" name="acc" value="C" onclick="return valida()">Enviar</button>
 							</div>
 						</article>
-				
+
 			</form>
-			
+
 		</div>
 	</section>
-		
+
 
 	<!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
@@ -104,5 +104,6 @@
     	$('select').material_select();
   		});
 	  </script>
+		<?php include '../Model/comp_footer.php'; ?>
 </body>
 </html>

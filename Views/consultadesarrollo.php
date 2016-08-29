@@ -53,7 +53,7 @@
       <?php
 
       $usuario = usuario::ReadbyType("Desarrollador");
-      foreach ($usuario as $row) {    
+      foreach ($usuario as $row) {
       echo "<tr>
                 <td>".$row["Id_usuario"]."</td>
                 <td>".$row["Nombre"]."</td>
@@ -65,7 +65,7 @@
                 <td>".$row["Tipo_usuario"]."</td>
                 <td>
 
-                  
+
 
 
                 </td>
@@ -74,5 +74,6 @@
          ?>
         </tbody>
     </table>
+		<?php include '../Model/comp_footer.php'; ?>
   </body>
 </html>
