@@ -1,0 +1,17 @@
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+#titulo{
+	margin-left: 50px;
+}
+.titulo{
+	font-family: "Cookies&milk";
+	font-size: 100px;
+}
+h3{
+	font-family: "Cookies&milk";
+	font-size: 700px;
+	text-align: center;
+}

@@ -1,0 +1,112 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+.brand-logo{
+	font-family: 'Poiret One';
+	color: white;
+	/*margin-left: 100px;*/
+}
+body{
+	/*background-color: blue;*/
+}
+.iniciar{
+	color: 	white;
+	font-size: 	20px;
+	font-family: 'Poiret One';
+}
+.titulo{
+	font-family: 'Poiret One';
+	font-size: 60px;
+	color: white;
+}
+.descripcion{
+	font-family: 'Roboto Condensed';
+}
+.textq{
+	font-family: 'Poiret One';
+	text-align: center;
+	margin-top: 50px;
+}
+.mockup{
+	text-align: center;
+	background-color: white;
+	margin-bottom: 100px;
+}
+.imgmockup{
+	max-width: 100%;
+	min-width: 100%;
+}
+.info{
+	background-color: #fafafa;
+	height: 400px;
+	margin: 50px 14px 14px 14px;
+	border-radius: 5px;
+}
+.imginfo{
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	margin-left: 50px;
+}
+@media (min-width: 270px){
+	.mockup{
+		margin-top: 50px;
+	}
+	.imgmockup{
+	margin-top: 0;
+	}
+	.imginfo{
+	margin-top: 0;
+	width: 350px;
+	height: 350px;
+	}
+	.info{
+	max-width: 100%;
+	}
+}
+@media (min-width: 480px){
+	.titulo{
+		font-size: 80px;
+	}
+	.info{
+	max-width: 47%;
+	}
+	.imginfo{
+		margin-bottom: 100px;
+	}
+}
+@media (min-width: 780px){
+	.titulo{
+		font-size: 100px;
+	}
+	.imgmockup{
+		margin-left: 50px;
+	}
+	.imginfo{
+		margin-top:50px;
+	}
+}
+@media (min-width: 993px){
+	.brand-logo{
+		margin-left: 150px;
+	}
+	.mockup{
+		text-align: left;
+	}
+	.info{
+	margin-top: 100px;
+	margin-bottom: 100px;
+	}
+}
+@media (min-width: 1000px){
+	.mockup{
+		margin-top: 110px;
+	}
+	.imgmockup{
+		margin-top:20px;
+	}
+	.imginfo{
+		margin-top:20px;
+	}
+}

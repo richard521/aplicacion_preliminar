@@ -1,0 +1,26 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-color: #eeeeee;
+}
+section{
+	max-width: 700px;
+	display: inline-block;
+	margin: auto;
+	background-color: #fafafa;
+	margin-top: 5px;
+}
+
+#titulo{
+	margin-left: 50px;
+}
+
+div #enviar{
+	background: red;
+}
+
+div #cancelar{
+	max-height: 100px;
+}
