@@ -40,41 +40,43 @@
     </script>
     </head>
   	<body>
-    <h1>Gestion de citas</h1>
-    <table id="datatable" class="display">
-      <thead>
-        <tr>
-          <th>Codigo</th>
-          <th>Usuario</th>
-          <th>Empleado</th>
-          <th>Fecha</th>
-          <th>Hora</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-      <?php
+    <div style="max-width: 80%; margin: auto">
+			<h1>Gestion de citas</h1>
+	    <table id="datatable" class="display">
+	      <thead>
+	        <tr>
+	          <th>Codigo</th>
+	          <th>Usuario</th>
+	          <th>Empleado</th>
+	          <th>Fecha</th>
+	          <th>Hora</th>
+	          <th>Acciones</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	      <?php
 
-      $cita = cita::ReadAll();
-      foreach ($cita as $row) {
-      echo "<tr>
-                <td>".$row["Id_cita"]."</td>
-                <td>".$row["Id_usuario"]."</td>
-                <td>".$row["Id_empleado"]."</td>
-                <td>".$row["Fecha_cita"]."</td>
-                <td>".$row["hora"]."</td>
-                <td>
+	      $cita = cita::ReadAll();
+	      foreach ($cita as $row) {
+	      echo "<tr>
+	                <td>".$row["Id_cita"]."</td>
+	                <td>".$row["Id_usuario"]."</td>
+	                <td>".$row["Id_empleado"]."</td>
+	                <td>".$row["Fecha_cita"]."</td>
+	                <td>".$row["hora"]."</td>
+	                <td>
 
-                  <a href='editarcita.php?cii=".($row["Id_cita"])."'><i class='small material-icons' style='color: #757575'>mode_edit</i></a>
-                  <a href='../Controller/cita.controller.php?cii=".($row["Id_cita"])."&acc=D'><i class='small material-icons' style='color: #757575'>delete</i></a>
+	                  <a href='editarcita.php?cii=".($row["Id_cita"])."'><i class='small material-icons' style='color: #757575'>mode_edit</i></a>
+	                  <a href='../Controller/cita.controller.php?cii=".($row["Id_cita"])."&acc=D'><i class='small material-icons' style='color: #757575'>delete</i></a>
 
 
-                </td>
-              </tr>";
-          }
-         ?>
-        </tbody>
-    </table>
+	                </td>
+	              </tr>";
+	          }
+	         ?>
+	        </tbody>
+	    </table>
+    </div>
 
 
 			<?php include_once("../Model/comp_footer.php"); ?>

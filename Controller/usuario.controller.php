@@ -31,7 +31,7 @@
 				} catch (Exception $e){
 					$mensaje="Lo sentimos, ha ocurrido un error al momento de hacer el registro, ruta error: ".$e->getMessage().", ".$e->getFile().", ".$e->getLine();
 					$tipo_mensaje="error";
-					header("Location: ../Views/usuario.php?msn=$mensaje&t=$tipo_mensaje");	
+					header("Location: ../Views/usuario.php?msn=$mensaje&t=$tipo_mensaje");
 				}
 			}
 			else if($Tipo_usuario=="Desarrollador"){
@@ -43,7 +43,7 @@
 				} catch (Exception $e){
 					$mensaje="Lo sentimos, ha ocurrido un error al momento de hacer el registro, ruta error: ".$e->getMessage().", ".$e->getFile().", ".$e->getLine();
 					$tipo_mensaje="error";
-					header("Location: ../Views/admins.php?msn=$mensaje&t=$tipo_mensaje");	
+					header("Location: ../Views/admins.php?msn=$mensaje&t=$tipo_mensaje");
 				}
 			}
 			else if($Tipo_usuario=="Administrador"){
@@ -55,7 +55,7 @@
 				} catch (Exception $e){
 					$mensaje="Lo sentimos, ha ocurrido un error al momento de hacer el registro, ruta error: ".$e->getMessage().", ".$e->getFile().", ".$e->getLine();
 					$tipo_mensaje="error";
-					header("Location: ../Views/admins.php?msn=$mensaje&t=$tipo_mensaje");	
+					header("Location: ../Views/admins.php?msn=$mensaje&t=$tipo_mensaje");
 				}
 			}
 			else if($Tipo_usuario=="Empleado"){
@@ -67,7 +67,7 @@
 				} catch (Exception $e){
 					$mensaje="Lo sentimos, ha ocurrido un error al momento de hacer el registro, ruta error: ".$e->getMessage().", ".$e->getFile().", ".$e->getLine();
 					$tipo_mensaje="error";
-					header("Location: ../Views/admins.php?msn=$mensaje&t=$tipo_mensaje");	
+					header("Location: ../Views/admins.php?msn=$mensaje&t=$tipo_mensaje");
 				}
 			}
 			else{
@@ -93,9 +93,9 @@
 				$tipo_mensaje="success";
 				header("Location: ../Views/pruebainicio.php?msn=$mensaje&t=$tipo_mensaje");
 			} catch (Exception $e){
-				$mensaje="Lo sentimos, ha ocurrido un error al momento de actualizar el usuario, ruta error: ".$e->getMessage().", ".$e->getFile().", ".$e->getLine();	
-				$tipo_mensaje="error";	
-				header("Location: ../Views/editarusuario.php?msn=$mensaje&t=$tipo_mensaje");	
+				$mensaje="Lo sentimos, ha ocurrido un error al momento de actualizar el usuario, ruta error: ".$e->getMessage().", ".$e->getFile().", ".$e->getLine();
+				$tipo_mensaje="error";
+				header("Location: ../Views/editarusuario.php?msn=$mensaje&t=$tipo_mensaje");
 			}
 			break;
 		case 'D':
@@ -107,7 +107,7 @@
 				$tipo_mensaje="success";
 				header("Location: ../Views/pruebainicio.php?msn=$mensaje&t=$tipo_mensaje");
 			} catch (Exception $e){
-				$mensaje="Lo sentimos, ha ocurrido un error al momento de eliminar el usuario, ruta error: ".$e->getMessage().", ".$e->getFile().", ".$e->getLine();	
+				$mensaje="Lo sentimos, ha ocurrido un error al momento de eliminar el usuario, ruta error: ".$e->getMessage().", ".$e->getFile().", ".$e->getLine();
 				$tipo_mensaje="error";
 			}
 			break;
@@ -126,8 +126,6 @@
 				if($usuario_existe == 0){
 					$mensaje="Usuario o contraseña incorrectos.";
 					$tipo_mensaje="error ";
-					
-
 					header("Location: ../Views/login.php?m=".$mensaje."&t=".$tipo_mensaje);
 				}else{
 					#creamos variables de session
@@ -142,7 +140,7 @@
 					$_SESSION["Sexo"]					= $usuario[7];
 					$_SESSION["Estado"]					= $usuario[8];
 
-					header("Location: ../Views/pruebainicio.php?");
+					header("Location: ../Views/gestioncita.php");
 				}
 			}catch(Exception $e){
 				$mensaje=("Lo sentimos, ocurrio un error ".$e->getMessage());
@@ -151,5 +149,5 @@
 				header("Location: ../Views/login.php?m=".$mensaje."&t".$tipo_mensaje);
 			}
 	}
-	// 
+	//
 ?>

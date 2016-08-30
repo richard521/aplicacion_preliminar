@@ -1,10 +1,15 @@
 <?php
+
+	if (isset($_GET['ci'])) {
+		$mensaje="Seleccione un centro de servicio";
+		$tipo_mensaje="warning";
+		header("Location ../Views/dashboard.php");
+	}
 	session_start();
 	include ("../Model/empleado.class.php");
 	include ("../Model/centro_servicio.class.php");
 	include ("../Model/dbconn.php");
 	$empleado = empleado::ReadInner();
-	$centro = centro_servicio::ReadAll();
 	/*$id_us = $_SESSION["Id_usuario"];
 	$no_us = $_SESSION["Nombre"];*/
 ?>
@@ -36,22 +41,11 @@
 					<h3>Registro cita nueva</h3>
 						<article>
 							<div class="input-field col s12">
-								<select name="Id_centro">
-										<?php
-											foreach ($centro as $fila ) {
-												echo'<option value="'.$fila["Id_centro"].'">'.$fila["Nombre"].'</option>';
-											}
-										?>
-
-								</select>
-								<label>Centro de servicio</label>
+								<input type="text" name="Id_centro" value="<?php echo $_GET['ci'] ?>">
 							</div>
 							<div class="input-field col s12">
-								<select name="Id_usuario">
-									<?php
-										echo '<option value="'.($_SESSION["Id_usuario"]).'">'.($_SESSION["Nombre"]).'</option>';
-									 ?>
-								</select>
+								<input type="text" name="Id_usuario" hidden value="<?php echo ($_SESSION["Id_usuario"]) ?>">
+								<input type="text" name="Nombre" value="<?php echo ($_SESSION["Nombre"]) ?>">
 								<label for="Id_usuario">Usuario</label>
 							</div>
 							<div class="input-field col s12">
@@ -65,13 +59,31 @@
 								</select>
 								<label>Empleado</label>
 							</div>
-							<div class="input-field col s12">
-								<input type="date" class="datepicker" name="Fecha_cita" class="validate" required>
+							<div class="input-field col s6">
+								<input type="date" class="datepicker" name="Fecha_cita" class="validate" min="<?php echo date('Y-m-d') ?>" required>
 								<label for="Fecha_cita">Fecha</label>
 							</div>
-							<div class="input-field col s12">
-								<input type="time" name="hora" class="validate" required>
-								<!--<label for="Hora">Hora cita</label>-->
+							<div class="input-field col s3">
+								<select name="hora">
+									<option value="12:00">12:00</option>
+                  <option value="1:00">1:00</option>
+                  <option value="2:00">2:00</option>
+                  <option value="3:00">3:00</option>
+                  <option value="4:00">4:00</option>
+                  <option value="5:00">5:00</option>
+                  <option value="6:00">6:00</option>
+                  <option value="7:00">7:00</option>
+                  <option value="8:00">8:00</option>
+                  <option value="9:00">9:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+								</select>
+							</div>
+							<div class="input-field col s3">
+								<select id="jornada" name="jornada">
+                  <option value="am">am</option>
+                  <option value="pm">pm</option>
+                </select>
 							</div>
 							<br>
 								<a href="pruebahome.php" class="waves-effect waves-light btn red darken-1 left tooltipped" data-tooltip="Volver" data-position="top">Cancelar</a>
@@ -91,7 +103,8 @@
       <script type="text/javascript">
       	$('.datepicker').pickadate({
     		selectMonths: true,
-    		selectYears: 15
+    		selectYears: 15,
+				min: new Date("<?php echo date('Y-n-j') ?>"),
   		});
   		$(document).ready(function() {
     	$('select').material_select();

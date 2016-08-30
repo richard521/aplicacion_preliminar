@@ -2,7 +2,7 @@
   session_start();
 
   if(isset($_SESSION["Id_usuario"])){
-    header("Location: Views/pruebainicio.php");
+    header("Location: Views/gestioncita.php");
   }
 ?>
 <!DOCTYPE html>
@@ -111,11 +111,11 @@
       </div>
     </div>
 </body>
-      
+
       <script type="text/javascript" src="Views/js/jquery-1.12.3.js"></script>
       <script type="text/javascript" src="Views/materialize/js/materialize.js"></script>
       <script src="Views/sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
-      <script> 
+      <script>
         $(document).ready(function(){
           $(".button-collapse").sideNav();
           $('.parallax').parallax();
@@ -124,14 +124,14 @@
             interval: 4000,
             transition: 700,
             height:  450,
-                   
+
           });
         });
       </script>
       <script type="text/javascript">
         $(document).ready(function()
         {
-          <?php 
+          <?php
             if(isset($_GET["msn"]) and isset($_GET["t"]))
             {
               echo "swal('".$_GET["msn"]."','','".$_GET["t"]."');";

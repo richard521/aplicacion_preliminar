@@ -27,73 +27,75 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <!--datatable-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+			<script type="text/javascript" src="js/jquery-1.12.3.js"></script>
+			<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
       <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
 
-      <script>
-      $(document).ready( function () {
-        $('#datatable').DataTable({
-           "language": {
-                     "url": "https://cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json"
-                }
-              })
-      });
+			<script>
+    	$(document).ready( function () {
+      	$('#datatable').DataTable();
+    	});
     </script>
       <nav>
         <?php include_once("../Model/menu.php");?>
       </nav>
     </head>
   	<body>
-    <h1>Gestion de usuarios</h1>
-    <table id="datatable" class="display">
-      <thead>
-        <tr>
-          <th>Codigo</th>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th>Clave</th>
-          <th>Correo electronico</th>
-          <th>Telefono</th>
-          <th>Sexo</th>
-          <th>Estado</th>
-          <th>Tipo de usuario</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-      <?php
+			<div style="max-width: 80%; margin: auto">
+	    <h1>Gestion de usuarios</h1>
+	    <table id="datatable" class="display">
+	      <thead>
+	        <tr>
+	          <th>Codigo</th>
+	          <th>Nombre</th>
+	          <th>Apellido</th>
+	          <th>Correo electronico</th>
+	          <th>Telefono</th>
+	          <th>Sexo</th>
+	          <th>Estado</th>
+	          <th>Tipo de usuario</th>
+	          <th>Acciones</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	      <?php
 
-      $usuario = usuario::ReadUse();
-      foreach ($usuario as $row) {
-      echo "<tr>
-                <td>".$row["Id_usuario"]."</td>
-                <td>".$row["Nombre"]."</td>
-                <td>".$row["Apellido"]."</td>
-                <td>".$row["Clave"]."</td>
-                <td>".$row["Email"]."</td>
-                <td>".$row["Telefono"]."</td>
-                <td>".$row["Sexo"]."</td>
-                <td>".$row["Estado"]."</td>
-                <td>".$row["Tipo_usuario"]."</td>
-                <td>
+	      $usuario = usuario::ReadUse();
+	      foreach ($usuario as $row) {
+	      echo "<tr>
+	                <td>".$row["Id_usuario"]."</td>
+	                <td>".$row["Nombre"]."</td>
+	                <td>".$row["Apellido"]."</td>
+	                <td>".$row["Email"]."</td>
+	                <td>".$row["Telefono"]."</td>
+	                <td>".$row["Sexo"]."</td>
+	                <td>".$row["Estado"]."</td>
+	                <td>".$row["Tipo_usuario"]."</td>
+	                <td>
 
-                  <a href='editarusuario.php?ui=".($row["Id_usuario"])."'><i class='small material-icons' style='color: #757575'>mode_edit</i></a>
-                  <a href='../Controller/usuario.controller.php?ui=".($row["Id_usuario"])."&acc=D'><i class='small material-icons' style='color: #757575'>delete</i></a>
+	                  <a href='editarusuario.php?ui=".($row["Id_usuario"])."'><i class='small material-icons' style='color: #757575'>mode_edit</i></a>
+	                  <a href='../Controller/usuario.controller.php?ui=".($row["Id_usuario"])."&acc=D'><i class='small material-icons' style='color: #757575'>delete</i></a>
 
 
-                </td>
-              </tr>";
-          }
-         ?>
-        </tbody>
-    </table>
+	                </td>
+	              </tr>";
+	          }
+	         ?>
+	        </tbody>
+	    </table>
+		</div>
 		<?php include '../Model/comp_footer.php'; ?>
   </body>
-  <!--<script type="text/javascript" src="js/jquery-1.12.3.js"></script>-->
-  <!-- <script type="text/javascript" src="materialize/js/materialize.min.js"></script> -->
+
   <script type="text/javascript">
         $(document).ready(function() {
         $(".dropdown-button").dropdown();
         $(".button-collapse").sideNav();
         });
   </script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+	$('select').material_select();
+	});
+	</script>
 </html>

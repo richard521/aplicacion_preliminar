@@ -2,18 +2,18 @@
 	# ->Class: cita
 	# ->Method(s): Create(), ReadAll(), Update(), Delete()
 	#Author: Londoño Ochoa
-	
+
 	class cita{
-		function create($Id_centro,$Id_usuario,$Id_empleado,$Fecha_cita,$Hora)
+		function create($Id_centro,$Id_usuario,$Id_empleado,$Fecha_cita,$Hora,$Jornada)
 		{
 			//Instanciamos y hacemos conexion a la base de datos(fusion_look)
 			$conexion=fusion_look_DB::Connect();
 			$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 			//Crear el query que se llevara a cabo
-			$consulta="INSERT INTO cita(Id_centro,Id_usuario,Id_empleado,Fecha_cita,hora) values (?,?,?,?,?)";
+			$consulta="INSERT INTO cita(Id_centro,Id_usuario,Id_empleado,Fecha_cita,hora,jornada) values (?,?,?,?,?,?)";
 			$query=$conexion->prepare($consulta);
-			$query->execute(array($Id_centro,$Id_usuario,$Id_empleado,$Fecha_cita,$Hora));
+			$query->execute(array($Id_centro,$Id_usuario,$Id_empleado,$Fecha_cita,$Hora,$Jornada));
 
 			fusion_look_DB::Disconnect();
 		}
@@ -27,7 +27,7 @@
 			$consulta="SELECT * FROM cita";
 			$query=$conexion->prepare($consulta);
 			$query->execute();
-			/* 
+			/*
 				devolver el resultado en un array
 				Fetch: es el resultado que arroja la consulta en forma de vector o matriz
 				segun sea el caso, para consultas donde arroja mas de un dato. el Fetch debe ir acompañado con la palabra ALL.
