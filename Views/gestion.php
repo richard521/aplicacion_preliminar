@@ -26,7 +26,7 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <!--datatable-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
 			<script type="text/javascript" src="js/jquery-1.12.3.js"></script>
 			<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
       <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>

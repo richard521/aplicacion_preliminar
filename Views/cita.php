@@ -44,7 +44,7 @@
 								<input type="text" name="Id_centro" value="<?php echo $_GET['ci'] ?>">
 							</div>
 							<div class="input-field col s12">
-								<input type="text" name="Id_usuario" hidden value="<?php echo ($_SESSION["Id_usuario"]) ?>">
+								<input type="text" name="Id_usuario" hidden value="<?php echo ($_SESSION[Id_usuario]) ?>">
 								<input type="text" name="Nombre" value="<?php echo ($_SESSION["Nombre"]) ?>">
 								<label for="Id_usuario">Usuario</label>
 							</div>
@@ -95,9 +95,8 @@
 			<?php echo @$_GET["msn"]; ?>
 		</div>
 	</section>
-	<script type="text/javascript">
-		alert("<?php echo date('Y-n-j') ?>");
-	</script>
+<?php echo ($_SESSION['Id_usuario']); ?>
+
 
 	<!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
