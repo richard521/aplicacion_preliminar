@@ -95,7 +95,9 @@
 			<?php echo @$_GET["msn"]; ?>
 		</div>
 	</section>
-
+	<script type="text/javascript">
+		alert("<?php echo date('Y-n-j') ?>");
+	</script>
 
 	<!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
@@ -103,7 +105,7 @@
       <script type="text/javascript">
       	$('.datepicker').pickadate({
     		selectMonths: true,
-    		selectYears: 15,
+    		selectYears: 1,
 				min: new Date("<?php echo date('Y-n-j') ?>"),
   		});
   		$(document).ready(function() {

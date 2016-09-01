@@ -107,8 +107,9 @@
 				$tipo_mensaje="success";
 				header("Location: ../Views/pruebainicio.php?msn=$mensaje&t=$tipo_mensaje");
 			} catch (Exception $e){
-				$mensaje="Lo sentimos, ha ocurrido un error al momento de eliminar el usuario, ruta error: ".$e->getMessage().", ".$e->getFile().", ".$e->getLine();
+				$mensaje="No se puede eliminar este usuario de manera directa ";
 				$tipo_mensaje="error";
+				header("Location: ../Views/dashboard.php?msn=$mensaje&t=$tipo_mensaje");
 			}
 			break;
 		case 'L':

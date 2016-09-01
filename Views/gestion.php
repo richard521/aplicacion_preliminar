@@ -86,7 +86,7 @@
 		</div>
 		<?php include '../Model/comp_footer.php'; ?>
   </body>
-
+<script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
   <script type="text/javascript">
         $(document).ready(function() {
         $(".dropdown-button").dropdown();
@@ -97,5 +97,16 @@
 	$(document).ready(function() {
 	$('select').material_select();
 	});
+	</script>
+	<script type="text/javascript">
+			$(document).ready(function()
+			{
+				<?php
+					if(isset($_GET["msn"]) and isset($_GET["t"]))
+					{
+						echo "swal('".$_GET["msn"]."','','".$_GET["t"]."');";
+					}
+				 ?>
+			});
 	</script>
 </html>
