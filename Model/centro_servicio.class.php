@@ -25,7 +25,7 @@
 			$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 			//Crear el query que se llevara a cabo
-			$consulta="SELECT * FROM centro_servicio";
+			$consulta="SELECT usuario.nombre, centro_servicio.Id_centro, ciudad.Nombre,centro_servicio.Nombre as centro, centro_servicio.Direccion, centro_servicio.Email, centro_servicio.Telefono  FROM ciudad INNER JOIN centro_servicio on ciudad.Id_ciudad = centro_servicio.Id_ciudad INNER JOIN administrador on centro_servicio.Id_administrador = administrador.Id_administrador INNER JOIN usuario on administrador.Id_usuario = usuario.Id_usuario";
 			$query=$conexion->prepare($consulta);
 			$query->execute();
 			/* devolver el resultado en un array
@@ -35,7 +35,7 @@
 			$resultado=$query->fetchALL(PDO::FETCH_BOTH);
 			return $resultado;
 
-			fusion_look_DB::Disconnect();	
+			fusion_look_DB::Disconnect();
 		}
 		function ReadbyId($Id_centro)
 		{
@@ -69,7 +69,7 @@
 			/*devolver el resultado en un array
 				Fetch: es el resultado que arroja la consulta en forma de vector o matriz
 				segun sea el caso, para consultas donde arroja mas de un dato. el Fetch debe ir acompañado con la palabra ALL.*/
-			
+
 			$resultado=$query->fetch(PDO::FETCH_BOTH);
 			return $resultado;
 
@@ -120,6 +120,6 @@
 
 			fusion_look_DB::Disconnect();
 		}
-		
+
 	}
 ?>

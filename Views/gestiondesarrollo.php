@@ -47,39 +47,41 @@
         <?php include_once("../Model/menu.php");?>
       </nav>
     </head>
-  	<body>
-    <h1>Consultar desarrolladores</h1>
-    <table id="datatable"><!-- class="display highlight responsive-table">-->
-    <a href="desarrollo.php" class="waves-effect waves-light btn grey darken-1">Crear nuevo</a>
-      <thead>
-        <tr>
-          <th>N° Administrador</th>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th>Correo Electronico</th>
-          <th>Telefono</th>
-          <th>Sexo</th>
-          <th>Perfil</th>
-        </tr>
-      </thead>
-      <tbody>
-      <?php
-      $desarrollo = usuario::ReadDev();
-      //$centro = centro_servicio::ReadbyIdadmin();
-      foreach ($desarrollo as $row) {
-      echo "<tr>
-                <td>".$row["Id_usuario"]."</td>
-                <td>".$row["Nombre"]."</td>
-                <td>".$row["Apellido"]."</td>
-                <td>".$row["Email"]."</td>
-                <td>".$row["Telefono"]."</td>
-                <td>".$row["Sexo"]."</td>
-                <td>".$row["Tipo_usuario"]."</td>
-              </tr>";
-          }
-         ?>
-        </tbody>
-    </table>
+  	<body style="background-color: #eeeeee;">
+    <div style="width:80%; margin:auto;" >
+			<h1>Consultar desarrolladores</h1>
+	    <table id="datatable" class="display"><!-- class="display highlight responsive-table">-->
+	    <a href="desarrollo.php" class="waves-effect waves-light btn grey darken-1">Crear nuevo</a>
+	      <thead>
+	        <tr>
+	          <th>N° Administrador</th>
+	          <th>Nombre</th>
+	          <th>Apellido</th>
+	          <th>Correo Electronico</th>
+	          <th>Telefono</th>
+	          <th>Sexo</th>
+	          <th>Perfil</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	      <?php
+	      $desarrollo = usuario::ReadDev();
+	      //$centro = centro_servicio::ReadbyIdadmin();
+	      foreach ($desarrollo as $row) {
+	      echo "<tr>
+	                <td>".$row["Id_usuario"]."</td>
+	                <td>".$row["Nombre"]."</td>
+	                <td>".$row["Apellido"]."</td>
+	                <td>".$row["Email"]."</td>
+	                <td>".$row["Telefono"]."</td>
+	                <td>".$row["Sexo"]."</td>
+	                <td>".$row["Tipo_usuario"]."</td>
+	              </tr>";
+	          }
+	         ?>
+	        </tbody>
+	    </table>
+    </div>
 		<?php include '../Model/comp_footer.php'; ?>
   </body>
       <!--<script type="text/javascript" src="js/jquery-1.12.3.js"></script>-->

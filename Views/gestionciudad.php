@@ -46,38 +46,40 @@
        ?>
     </nav>
     </head>
-  	<body>
-    <h1>Gestion de ciudades</h1>
-    <table id="datatable" class="display">
-      <thead>
-        <tr>
-          <th>Codigo</th>
-          <th>Departamento</th>
-          <th>Nombre</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-      <?php
+  	<body style="background-color:#eeeeee;">
+    <div style="margin:auto; width:80%;">
+			<h1>Gestion de ciudades</h1>
+	    <table id="datatable" class="display">
+	      <thead>
+	        <tr>
+	          <th>Codigo</th>
+	          <th>Departamento</th>
+	          <th>Nombre</th>
+	          <th>Acciones</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	      <?php
 
-      $ciudad = ciudad::ReadAll();
-      foreach ($ciudad as $row) {
-      echo "<tr>
-                <td>".$row["Id_ciudad"]."</td>
-                <td>".$row["Id_departamento"]."</td>
-                <td>".$row["Nombre"]."</td>
-                <td>
+	      $ciudad = ciudad::ReadAll();
+	      foreach ($ciudad as $row) {
+	      echo "<tr>
+	                <td>".$row["Id_ciudad"]."</td>
+	                <td>".$row["Id_departamento"]."</td>
+	                <td>".$row["Nombre"]."</td>
+	                <td>
 
-                  <a href='editarciudad.php?cui=".($row["Id_ciudad"])."'><i class='small material-icons' style='color: #757575'>mode_edit</i></a>
-                  <a href='../Controller/ciudad.controller.php?cui=".($row["Id_ciudad"])."&acc=D'><i class='small material-icons' style='color: #757575'>delete</i></a>
+	                  <a href='editarciudad.php?cui=".($row["Id_ciudad"])."'><i class='small material-icons' style='color: #757575'>mode_edit</i></a>
+	                  <a href='../Controller/ciudad.controller.php?cui=".($row["Id_ciudad"])."&acc=D'><i class='small material-icons' style='color: #757575'>delete</i></a>
 
 
-                </td>
-              </tr>";
-          }
-         ?>
-        </tbody>
-    </table>
+	                </td>
+	              </tr>";
+	          }
+	         ?>
+	        </tbody>
+	    </table>
+    </div>
 		<?php include '../Model/comp_footer.php'; ?>
   </body>
   <script type="text/javascript" src="materialize/js/materialize.min.js"></script>

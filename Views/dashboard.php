@@ -51,7 +51,6 @@
           <thead>
             <tr>
               <th>Administrador</th>
-              <th>Codigo</th>
               <th>Ciudad</th>
               <th>Nombre</th>
               <th>Direccion</th>
@@ -66,10 +65,9 @@
           //$centro = centro_servicio::ReadbyIdadmin();
           foreach ($centro as $row) {
           echo "<tr>
-                    <td>".$row["Id_administrador"]."</td>
-                    <td>".$row["Id_centro"]."</td>
-                    <td>".$row["Id_ciudad"]."</td>
+                    <td>".$row["nombre"]."</td>
                     <td>".$row["Nombre"]."</td>
+                    <td>".$row["centro"]."</td>
                     <td>".$row["Direccion"]."</td>
                     <td>".$row["Email"]."</td>
                     <td>".$row["Telefono"]."</td>
@@ -93,4 +91,15 @@
       $('select').material_select();
       });
       </script>
+			<script type="text/javascript">
+					$(document).ready(function()
+					{
+						<?php
+							if(isset($_GET["msn"]) and isset($_GET["t"]))
+							{
+								echo "swal('".$_GET["msn"]."','','".$_GET["t"]."');";
+							}
+						 ?>
+					});
+			</script>
 </html>

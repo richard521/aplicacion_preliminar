@@ -73,8 +73,7 @@
 					<h3>Registro desarrollador nuevo</h3>
 						<article>
 							<div class="input-field col s12">
-								<input type="text" id="Tipo_usuario" name="Tipo_usuario" class="validate" value="Desarrollador" onkeypress="return validar(event)" readonly>
-								<label for="Tipo_usuario">Tipo de usuario</label>
+								<input hidden type="text" id="Tipo_usuario" name="Tipo_usuario" class="validate" value="Desarrollador" onkeypress="return validar(event)" readonly>
   							</div>
 							<div class="input-field col s12">
 								<input type="text" id="Nombre" name="Nombre" class="validate" onkeypress="return validar(event)">
@@ -122,7 +121,8 @@
 										<label for="inactivo">Inactivo</label>
 									</p>
 								<br>
-								<a href="<?=$_SERVER['HTTP_REFERER'] ?>" class="waves-effect waves-light btn left tooltipped red darken-1
+								<!-- <?=$_SERVER['HTTP_REFERER'] ?> redireccionar a la pagina anterior del navegador-->
+								<a href="gestiondesarrollo.php" class="waves-effect waves-light btn left tooltipped red darken-1
 " data-tooltip="Volver" data-position="top">Cancelar</a>
 								<button class="waves-effect waves-light  btn right  cyan darken-1" name="acc" value="C" onclick="return valida()">Enviar</button>
 							</div>

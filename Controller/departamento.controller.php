@@ -15,14 +15,14 @@
 			# Create
 			# inicializar las variables que enviara el formulario y las que se guardaran en la tabla
 			$Nombre 					=$_POST["Nombre"];
-			
+
 			try {
 				departamento::Create($Nombre);
 				$mensaje="Departamento creado con exito.";
 				$tipo_mensaje="success";
 				header("Location: ../Views/pruebainicio.php?msn=$mensaje&t=$tipo_mensaje");
 			} catch (Exception $e){
-				$mensaje="Lo sentimos, ha ocurrido un error al momento de hacer el registro, ruta error: ".$e->getMessage().", ".$e->getFile().", ".$e->getLine();	
+				$mensaje="Lo sentimos, ha ocurrido un error al momento de hacer el registro, ruta error: ".$e->getMessage().", ".$e->getFile().", ".$e->getLine();
 			}
 			break;
 		case 'U':
@@ -35,7 +35,7 @@
 				$tipo_mensaje="success";
 				header("Location: ../Views/pruebainicio.php?msn=$mensaje&t=$tipo_mensaje");
 			} catch (Exception $e){
-				$mensaje="Lo sentimos, ha ocurrido un error al momento de actualizar el departamento, ruta error: ".$e->getMessage().", ".$e->getFile().", ".$e->getLine();	
+				$mensaje="Lo sentimos, ha ocurrido un error al momento de actualizar el departamento, ruta error: ".$e->getMessage().", ".$e->getFile().", ".$e->getLine();
 				$tipo_mensaje="error";
 				header("Location: ../Views/pruebainicio.php?msn=$mensaje&t=$tipo_mensaje");
 			}
@@ -49,9 +49,11 @@
 				$tipo_mensaje="success";
 				header("Location: ../Views/pruebainicio.php?msn=$mensaje&t=$tipo_mensaje");
 			}catch(Exception $e){
-				$mensaje="Lo sentimos, ha ocurrido un error al momento de eliminar la ciudad, ruta error: ".$e->getMessage().", ".$e->getFile().", ".$e->getLine();
+				$mensaje="Lo sentimos no se puede eliminar el departamento de forma directa";
+				$tipo_mensaje="error";
+				header("Location: ../Views/gestiondepartamento.php?msn=$mensaje&t=$tipo_mensaje");
 			}
 			break;
-		
+
 	}
 ?>

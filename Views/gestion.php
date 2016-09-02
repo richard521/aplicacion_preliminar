@@ -40,7 +40,7 @@
         <?php include_once("../Model/menu.php");?>
       </nav>
     </head>
-  	<body>
+  	<body style="background-color: #eeeeee;">
 			<div style="max-width: 80%; margin: auto">
 	    <h1>Gestion de usuarios</h1>
 	    <table id="datatable" class="display">

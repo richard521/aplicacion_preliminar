@@ -48,36 +48,38 @@
         <?php include_once("../Model/menu.php");?>
       </nav>
     </head>
-  	<body>
-    <h1>Gestion Departamentos</h1>
-    <table id="datatable" class="display">
-      <thead>
-        <tr>
-          <th>Codigo</th>
-          <th>Nombre</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-      <?php
+  	<body style="background-color:#eeeeee;">
+    <div style="width:80%; margin:auto;">
+			<h1>Gestion Departamentos</h1>
+	    <table id="datatable" class="display">
+	      <thead>
+	        <tr>
+	          <th>Codigo</th>
+	          <th>Nombre</th>
+	          <th>Acciones</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	      <?php
 
-      $depar = departamento::ReadAll();
-      foreach ($depar as $row) {
-      echo "<tr>
-                <td>".$row["Id_departamento"]."</td>
-                <td>".$row["Nombre"]."</td>
-                <td>
+	      $depar = departamento::ReadAll();
+	      foreach ($depar as $row) {
+	      echo "<tr>
+	                <td>".$row["Id_departamento"]."</td>
+	                <td>".$row["Nombre"]."</td>
+	                <td>
 
-                  <a href='editardepartamento.php?di=".($row["Id_departamento"])."'><i class='small material-icons' style='color: #757575'>mode_edit</i></a>
-                  <a href='../Controller/departamento.controller.php?di=".($row["Id_departamento"])."&acc=D'><i class='small material-icons' style='color: #757575'>delete</i></a>
+	                  <a href='editardepartamento.php?di=".($row["Id_departamento"])."'><i class='small material-icons' style='color: #757575'>mode_edit</i></a>
+	                  <a href='../Controller/departamento.controller.php?di=".($row["Id_departamento"])."&acc=D'><i class='small material-icons' style='color: #757575'>delete</i></a>
 
 
-                </td>
-              </tr>";
-          }
-         ?>
-        </tbody>
-    </table>
+	                </td>
+	              </tr>";
+	          }
+	         ?>
+	        </tbody>
+	    </table>
+    </div>
 		<?php include '../Model/comp_footer.php'; ?>
   </body>
   <!--<script type="text/javascript" src="js/jquery-1.12.3.js"></script>-->
@@ -88,4 +90,16 @@
         $(".button-collapse").sideNav();
         });
   </script>
+	<script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
+	<script type="text/javascript">
+			$(document).ready(function()
+			{
+				<?php
+					if(isset($_GET["msn"]) and isset($_GET["t"]))
+					{
+						echo "swal('".$_GET["msn"]."','','".$_GET["t"]."');";
+					}
+				 ?>
+			});
+	</script>
 </html>

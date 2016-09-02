@@ -111,7 +111,7 @@
       </div>
     </div>
 </body>
-
+<?php include 'Model/comp_footer.php'; ?>
       <script type="text/javascript" src="Views/js/jquery-1.12.3.js"></script>
       <script type="text/javascript" src="Views/materialize/js/materialize.js"></script>
       <script src="Views/sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
@@ -123,7 +123,7 @@
             indicators: false,
             interval: 4000,
             transition: 700,
-            height:  450,
+            height:  600,
 
           });
         });

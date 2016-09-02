@@ -10,6 +10,10 @@
     <div class="nav-wrapper grey darken-1">
         <style type="text/css">
         .brand-logo {font-family: 'Poiret One'}
+        .nav-wrapper{
+          position: fixed;
+          z-index: 100,
+        }
       </style>
         <ul id="centros" class="dropdown-content grey darken-1"style="margin-top: 64px;">
             <li><a href="gestioncentros.php"style="color: white;">Consultar</a></li>
@@ -45,6 +49,10 @@
     <div class="nav-wrapper grey darken-1">
         <style type="text/css">
         .brand-logo {font-family: 'Poiret One'}
+        .nav-wrapper{
+          position: fixed;
+          z-index: 100,
+        }
       </style>
         <ul id="centros" class="dropdown-content grey darken-1"style="margin-top: 64px;">
             <li><a href="centro_servicio.php"style="color: white;">Crear</a></li>
@@ -92,6 +100,10 @@
     <div class="nav-wrapper grey darken-1">
         <style type="text/css">
         .brand-logo {font-family: 'Poiret One'}
+        .nav-wrapper{
+          position: fixed,
+          z-index: 100,
+        }
         </style>
         <ul id="desarrollo" class="dropdown-content grey darken-1" style="margin-top: 64px;">
             <li><a href="desarrollo.php" style="color: white;">Crear</a></li>
