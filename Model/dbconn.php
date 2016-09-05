@@ -13,19 +13,19 @@
 		public static function Connect(){
 			if (self::$conn==null) {
 
-				
+
 				try {
-					
+
 					self::$conn = new PDO("mysql:host=".self::$db_host.";"."dbname=".self::$db_name, self::$db_user, self::$db_pass);
  					self::$conn -> exec("SET CHARACTER SET utf8");
  					}
  				catch(PDOException $e){
  					die($e->getMessage());
 
-				
+
 					}
 		}
-		return self::$conn; 
+		return self::$conn;
 		}
 		public static function Disconnect(){
  			self::$conn= null;
