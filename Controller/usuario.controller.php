@@ -6,6 +6,7 @@
 	require_once("../Model/dbconn.php");
 	//traemos las clases necesarias
 	require_once("../Model/usuario.class.php");
+	require_once("../Model/empleado.class.php");
 	//instanciamos las variables globales y una llamada "$accion"
 	//"la variable accion nos indicara que parte del CRUD estamos creando"
 
@@ -128,8 +129,9 @@
 					$mensaje="Usuario o contraseña incorrectos.";
 					$tipo_mensaje="error ";
 					header("Location: ../Views/login.php?m=".$mensaje."&t=".$tipo_mensaje);
-				}else{
+				}elseif($usuario[1]=="Administrador"){
 					#creamos variables de session
+					$empleado=
 
 					$_SESSION["Id_usuario"]				= $usuario[0];
 					$_SESSION["Tipo_usuario"]			= $usuario[1];
@@ -141,7 +143,50 @@
 					$_SESSION["Sexo"]					= $usuario[7];
 					$_SESSION["Estado"]					= $usuario[8];
 
+					header("Location: ../Views/gestionventros.php");
+				}
+				elseif($usuario[1]=="Usuario"){
+					#creamos variables de session
+					$_SESSION["Id_usuario"]				= $usuario[0];
+					$_SESSION["Tipo_usuario"]			= $usuario[1];
+					$_SESSION["Nombre"]					= $usuario[2];
+					$_SESSION["Apellido"]				= $usuario[3];
+					$_SESSION["Clave"]					= $usuario[4];
+					$_SESSION["Email"]					= $usuario[5];
+					$_SESSION["Telefono"]				= $usuario[6];
+					$_SESSION["Sexo"]					= $usuario[7];
+					$_SESSION["Estado"]					= $usuario[8];
+
+					header("Location: ../Views/dashboard.php");
+				}elseif($usuario[1]=="Desarrollador"){
+					#creamos variables de session
+					$_SESSION["Id_usuario"]				= $usuario[0];
+					$_SESSION["Tipo_usuario"]			= $usuario[1];
+					$_SESSION["Nombre"]					= $usuario[2];
+					$_SESSION["Apellido"]				= $usuario[3];
+					$_SESSION["Clave"]					= $usuario[4];
+					$_SESSION["Email"]					= $usuario[5];
+					$_SESSION["Telefono"]				= $usuario[6];
+					$_SESSION["Sexo"]					= $usuario[7];
+					$_SESSION["Estado"]					= $usuario[8];
+
+					header("Location: ../Views/gestiondesarrollo.php");
+				}elseif($usuario[1]=="Empleado"){
+					$empleado=empleado::Readid($usuario[0]);
+					#creamos variables de session
+					$_SESSION["Id_usuario"]				= $usuario[0];
+					$_SESSION["Tipo_usuario"]			= $usuario[1];
+					$_SESSION["Nombre"]					= $usuario[2];
+					$_SESSION["Apellido"]				= $usuario[3];
+					$_SESSION["Clave"]					= $usuario[4];
+					$_SESSION["Email"]					= $usuario[5];
+					$_SESSION["Telefono"]				= $usuario[6];
+					$_SESSION["Sexo"]					= $usuario[7];
+					$_SESSION["Estado"]					= $usuario[8];
+					$_SESSION["Id_empleado"]		=$empleado[0];
+
 					header("Location: ../Views/gestioncita.php");
+					echo $_SESSION['Id_empleado'];
 				}
 			}catch(Exception $e){
 				$mensaje=("Lo sentimos, ocurrio un error ".$e->getMessage());

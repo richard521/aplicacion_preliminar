@@ -149,5 +149,28 @@
             </ul>-->
     </div>
 <?php
+}elseif ($_SESSION["Tipo_usuario"] == "Empleado") {?>
+  <div class="nav-wrapper grey darken-1">
+      <style type="text/css">
+      .brand-logo {font-family: 'Poiret One'}
+      .nav-wrapper{
+        position: fixed,
+        z-index: 100,
+      }
+      </style>
+      <ul id="perfil" class="dropdown-content grey darken-1"style="margin-top: 64px;">
+          <li><a href="#"style="color: white;"><?php echo($_SESSION["Tipo_usuario"]).": ".($_SESSION["Id_empleado"])." "?></a></li>
+          <li><a href="editarusuario.php"style="color: white;">Modificar</a></li>
+      </ul>
+          <a href="pruebainicio.php" class="brand-logo">Fusion-Look</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="gestioncita.php">Citas</a></li>
+            <li><a href="#" class="dropdown-button" data-activates="perfil">Mi perfil</a></li>
+            <li><a href="../Model/cerrarsesion.php">Cerrar sesión</a></li>
+          </ul>
+
+  </div>
+<?php
 }
 ?>

@@ -44,7 +44,7 @@
 								<input type="text" name="Id_centro" value="<?php echo $_GET['ci'] ?>">
 							</div>
 							<div class="input-field col s12">
-								<input type="text" name="Id_usuario" hidden value="<?php echo ($_SESSION[Id_usuario]) ?>">
+								<input type="text" name="Id_usuario"  value="<?php echo ($_SESSION["Id_usuario"]) ?>">
 								<input type="text" name="Nombre" value="<?php echo ($_SESSION["Nombre"]) ?>">
 								<label for="Id_usuario">Usuario</label>
 							</div>
@@ -60,7 +60,7 @@
 								<label>Empleado</label>
 							</div>
 							<div class="input-field col s6">
-								<input type="date" class="datepicker" name="Fecha_cita" class="validate" min="<?php echo date('Y-m-d') ?>" required>
+								<input type="date" class="datepicker" name="Fecha_cita" class="validate" required>
 								<label for="Fecha_cita">Fecha</label>
 							</div>
 							<div class="input-field col s3">

@@ -88,7 +88,8 @@
       <script type="text/javascript">
       	$('.datepicker').pickadate({
     		selectMonths: true,
-    		selectYears: 15
+    		selectYears: 15,
+				min: new Date("<?php echo date('Y-n-j') ?>"),
   		});
   		$(document).ready(function() {
     	$('select').material_select();

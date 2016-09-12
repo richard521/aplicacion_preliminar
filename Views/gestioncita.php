@@ -9,6 +9,7 @@
 	}
   require_once("../Model/dbconn.php");
 	require_once("../Model/cita.class.php");
+	echo $_SESSION["Id_empleado"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -68,8 +69,6 @@
 
 	                  <a href='editarcita.php?cii=".($row["Id_cita"])."'><i class='small material-icons' style='color: #757575'>mode_edit</i></a>
 	                  <a href='../Controller/cita.controller.php?cii=".($row["Id_cita"])."&acc=D'><i class='small material-icons' style='color: #757575'>delete</i></a>
-
-
 	                </td>
 	              </tr>";
 	          }

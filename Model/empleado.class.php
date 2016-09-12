@@ -2,7 +2,7 @@
 	# ->Class: empleado
 	# ->Method(s): Create(), ReadAll(), Update(), Delete()
 	#Author: Londoño Ochoa
-	
+
 	class empleado{
 		function create($Id_usuario,$Id_centro,$Id_servicio,$Inicio,$Fin)
 		{
@@ -24,9 +24,22 @@
 			$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 			//Crear el query que se llevara a cabo
-			$consulta="SELECT Id_empleado, Id_usuario, Id_centro, Id_servicio, Inicio, Fin FROM empleado";
+			$consulta="SELECT * FROM empleado";
 			$query=$conexion->prepare($consulta);
 			$query->execute(array());
+
+			fusion_look_DB::Disconnect();
+		}
+		function Readid($usuario)
+		{
+			//Instanciamos y hacemos conexion a la base de datos(fusion_look)
+			$conexion=fusion_look_DB::Connect();
+			$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+			//Crear el query que se llevara a cabo
+			$consulta="SELECT * FROM empleado WHERE Id_usuario=?";
+			$query=$conexion->prepare($consulta);
+			$query->execute(array($usuario));
 
 			fusion_look_DB::Disconnect();
 		}
