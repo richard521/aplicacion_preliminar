@@ -9,14 +9,6 @@ body{
 	position: fixed;
 	z-index: 100;
 }*/
-section{
-	max-width: 700px;
-	display: inline-block;
-	margin: auto;
-	background-color: #fafafa;
-	margin-top: 5px;
-}
-
 #titulo{
 	margin-left: 50px;
 }
@@ -27,4 +19,11 @@ div #enviar{
 
 div #cancelar{
 	max-height: 100px;
+}
+section{
+	max-width: 700px;
+	display: inline-block;
+	margin: auto;
+	background-color: #fafafa;
+	margin-top: 5px;
 }

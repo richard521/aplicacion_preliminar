@@ -60,7 +60,7 @@
     </nav>
 </head>
 <body>
-	<section >
+	<section style="max-width: 55%; background-color:#fff; margin:auto;">
 		<div class="row">
 			<form action="../Controller/usuario.controller.php" method="POST" class="col s12">
 				<div class="row">

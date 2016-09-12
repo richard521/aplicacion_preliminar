@@ -9,7 +9,7 @@
 	}
 	require_once("../Model/dbconn.php");
 	require_once("../Model/cita.class.php");
-	include ("../Model/empleado.class.php");
+	require_once("../Model/empleado.class.php");
 	$empleado = empleado::ReadInner();
 	$cita = cita::ReadbyId($_REQUEST["cii"]);
 ?>
