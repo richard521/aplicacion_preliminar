@@ -47,14 +47,7 @@
 					<h3>Registro centro nuevo</h3>
 						<article>
 							<div class="input-field col s12">
-								<select name="Id_administrador" >
-										<?php
-											foreach ($admin as $fila ) {
-												echo'<option value="'.$fila["Id_administrador"].'">'.$fila["Nombre"].'</option>';
-											}
-										?>
-								</select>
-								<label>Administrador</label>
+								<input type="text" name="Id_administrador" value="<?php echo $_SESSION['Id_administrador']?>" hidden>
 							</div>
 							<div class="input-field col s12">
 								<select name="Id_ciudad" >

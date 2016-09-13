@@ -49,7 +49,7 @@
       </nav>
     </head>
   	<body style="background-color: #eeeeee;">
-    <div style="margin:auto; width:80%;">
+    <div >
 			<h1>Gestion de Administradores</h1>
 	    <table id="datatable" class="display">
 	      <thead>
@@ -57,7 +57,7 @@
 	          <th>Codigo</th>
 	          <th>Nombre</th>
 	          <th>Apellido</th>
-	          <th>Clave</th>
+	          <!-- <th>Clave</th> -->
 	          <th>Correo electronico</th>
 	          <th>Telefono</th>
 	          <th>Sexo</th>
@@ -75,7 +75,7 @@
 	                <td>".$row["Id_usuario"]."</td>
 	                <td>".$row["Nombre"]."</td>
 	                <td>".$row["Apellido"]."</td>
-	                <td>".$row["Clave"]."</td>
+	                <!--<td>".$row["Clave"]."</td>-->
 	                <td>".$row["Email"]."</td>
 	                <td>".$row["Telefono"]."</td>
 	                <td>".$row["Sexo"]."</td>

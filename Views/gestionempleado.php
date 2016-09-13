@@ -62,7 +62,7 @@
           <th>Sexo</th>
           <th>Servicio</th>
           <th>Centro de servicio</th>
-          <!--<th>Acciones</th>-->
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -81,7 +81,8 @@
                 <td>".$row["Sexo"]."</td>
                 <td>".$row["nombreservicio"]."</td>
                 <td>".$row["nombrecentro"]."</td>
-
+							<td>
+              </td>
               </tr>";
       /*echo "<tr>
                 <td>".$row["Id_empleado"]."</td>

@@ -30,19 +30,19 @@
 
 			fusion_look_DB::Disconnect();
 		}
-		function Readid($usuario)
-		{
-			//Instanciamos y hacemos conexion a la base de datos(fusion_look)
-			$conexion=fusion_look_DB::Connect();
-			$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-
-			//Crear el query que se llevara a cabo
-			$consulta="SELECT * FROM empleado WHERE Id_usuario=?";
-			$query=$conexion->prepare($consulta);
-			$query->execute(array($usuario));
-
-			fusion_look_DB::Disconnect();
-		}
+		// function Readid($Id_usuario)
+		// {
+		// 	//Instanciamos y hacemos conexion a la base de datos(fusion_look)
+		// 	$conexion=fusion_look_DB::Connect();
+		// 	$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+		//
+		// 	//Crear el query que se llevara a cabo
+		// 	$consulta="SELECT * FROM empleado WHERE Id_usuario=?";
+		// 	$query=$conexion->prepare($consulta);
+		// 	$query->execute(array($Id_usuario));
+		//
+		// 	fusion_look_DB::Disconnect();
+		// }
 		//
 		function ReadInner()
 		{

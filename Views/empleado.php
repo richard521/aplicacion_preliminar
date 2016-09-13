@@ -5,6 +5,10 @@
 		$mensaje="lo sentimos usted no puede agregar empleados";
 		header("Location: ../index.php?m=$mensaje");
 	}
+	include("../Model/dbconn.php");
+	include("../Model/centro_servicio.class.php");
+	include("../Model/usuario.class.php");
+	include("../Model/servicio.class.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,11 +35,10 @@
 		<div class="row">
 			<form action="../Controller/usuario.controller.php" method="POST" class="col s12">
 				<div class="row">
-					<h3>Registro empleado nuevo paso 1</h3>
+					<h3>Registro empleado nuevo</h3>
 						<article>
 							<div class="input-field col s12">
-								<input type="text" id="Tipo_usuario" name="Tipo_usuario" class="validate" value="Empleado" onkeypress="return validar(event)" readonly>
-								<label for="Tipo_usuario">Tipo de usuario</label>
+								<input type="text" id="Tipo_usuario" name="Tipo_usuario" class="validate" value="Empleado" onkeypress="return validar(event)" hidden>
   							</div>
 							<div class="input-field col s12">
 								<input type="text" id="Nombre" name="Nombre" class="validate" onkeypress="return validar(event)">
@@ -44,6 +47,34 @@
 							<div class="input-field col s12">
 								<input type="text" id="Apellido" name="Apellido" class="validate" onkeypress="return validar(event)">
 								<label for="Apellido">Apellido</label>
+							</div>
+							<div class="input-field col s12">
+								<select name="Id_centro" >
+										<?php
+											$centro = centro_servicio::cenadmin();
+											foreach ($centro as $fila ) {
+												echo'<option value="'.$fila["Id_centro"].'">'.$fila["Nombre"].'</option>';
+											}
+										?>
+								</select>
+								<label>Centro de Servicio</label>
+							</div>
+							<div class="input-field col s12">
+								<select name="Id_servicio" >
+										<?php
+											$servicio = servicio::ReadAll();
+											foreach ($servicio as $fila ) {
+												echo'<option value="'.$fila["Id_servicio"].'">'.$fila["Nombre"].'</option>';
+											}
+										?>
+								</select>
+								<label>Servicio</label>
+							</div>
+							<div class="time col s12">
+								<label for="">Hora inicio</label>
+								<input type="time" name="inicio" value="">
+								<label for="">Hora fin</label>
+								<input type="time" name="fin" value="">
 							</div>
 							<div class="input-field col s12">
 								<input type="password" id="Clave" name="Clave" class="validate">
@@ -84,7 +115,7 @@
 									</p>
 								<br>
 								<!--<a href="pruebahome.php" class="waves-effect waves-light btn red darken-1 left tooltipped" data-tooltip="Volver" data-position="top">Cancelar</a>-->
-								<a href="<?=$_SERVER['HTTP_REFERER'] ?>" class="waves-effect waves-light btn red darken-1 left tooltipped" data-tooltip="Volver" data-position="top">Cancelar</a>
+								<a href="gestioncentros.php" class="waves-effect waves-light btn red darken-1 left tooltipped" data-tooltip="Volver" data-position="top">Cancelar</a>
 								<button class="waves-effect waves-light  btn right cyan darken-1" name="acc" value="C" onclick="return valida()">Enviar</button>
 							</div>
 						</article>

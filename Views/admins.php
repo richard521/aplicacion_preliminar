@@ -1,4 +1,5 @@
 <?php
+session_start();
 	include ("../Model/usuario.class.php");
 	include ("../Model/dbconn.php");
 	$user = usuario::ReadAdm();

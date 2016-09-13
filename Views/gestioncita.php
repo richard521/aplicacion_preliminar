@@ -9,7 +9,7 @@
 	}
   require_once("../Model/dbconn.php");
 	require_once("../Model/cita.class.php");
-	echo $_SESSION["Id_empleado"];
+	// echo $_SESSION['Id_empleado'];
 ?>
 <!DOCTYPE html>
 <html>

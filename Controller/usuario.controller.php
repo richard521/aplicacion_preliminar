@@ -23,6 +23,10 @@
 			$Telefono				=$_POST["Telefono"];
 			$Sexo					=$_POST["Sexo"];
 			$Estado					=$_POST["Estado"];
+			$centro					=$_POST["Id_centro"];
+			$servicio				=$_POST["Id_servicio"];
+			$inicio				=$_POST["inicio"];
+			$fin				=$_POST["fin"];
 			if ($Tipo_usuario=="Usuario") {
 				try {
 					usuario::Create($Tipo_usuario,$Nombre,$Apellido,$Clave,$Email,$Telefono,$Sexo,$Estado);
@@ -50,25 +54,31 @@
 			else if($Tipo_usuario=="Administrador"){
 				try {
 					usuario::Create($Tipo_usuario,$Nombre,$Apellido,$Clave,$Email,$Telefono,$Sexo,$Estado);
-					$mensaje="Complete el paso numero 2.";
+					$idusuario=usuario::compmail($Email);
+					usuario::createadmin($idusuario["Id_usuario"]);
+					$mensaje="hola";
 					$tipo_mensaje="success";
-					header("Location: ../Views/admins.php?msn=$mensaje&t=$tipo_mensaje");
+					header("Location: ../Views/gestionadmins.php?msn=$mensaje&t=$tipo_mensaje");
+
 				} catch (Exception $e){
 					$mensaje="Lo sentimos, ha ocurrido un error al momento de hacer el registro, ruta error: ".$e->getMessage().", ".$e->getFile().", ".$e->getLine();
 					$tipo_mensaje="error";
-					header("Location: ../Views/admins.php?msn=$mensaje&t=$tipo_mensaje");
+					header("Location: ../Views/gestionadmins.php?msn=$mensaje&t=$tipo_mensaje");
+
 				}
 			}
 			else if($Tipo_usuario=="Empleado"){
 				try {
 					usuario::Create($Tipo_usuario,$Nombre,$Apellido,$Clave,$Email,$Telefono,$Sexo,$Estado);
+					$idusu=usuario::compmail($Email);
+					usuario::createemple($idusu["Id_usuario"],$centro,$servicio,$inicio,$fin);
 					$mensaje="Empleado registrado con exito.";
 					$tipo_mensaje="success";
-					header("Location: ../Views/empleado2.php?msn=$mensaje&t=$tipo_mensaje");
+					header("Location: ../Views/gestionempleado.php?msn=$mensaje&t=$tipo_mensaje");
 				} catch (Exception $e){
 					$mensaje="Lo sentimos, ha ocurrido un error al momento de hacer el registro, ruta error: ".$e->getMessage().", ".$e->getFile().", ".$e->getLine();
 					$tipo_mensaje="error";
-					header("Location: ../Views/admins.php?msn=$mensaje&t=$tipo_mensaje");
+					header("Location: ../Views/empleado.php?msn=$mensaje&t=$tipo_mensaje");
 				}
 			}
 			else{
@@ -130,9 +140,8 @@
 					$tipo_mensaje="error ";
 					header("Location: ../Views/login.php?m=".$mensaje."&t=".$tipo_mensaje);
 				}elseif($usuario[1]=="Administrador"){
+					$admin = usuario::consadmin($usuario[0]);
 					#creamos variables de session
-					$empleado=
-
 					$_SESSION["Id_usuario"]				= $usuario[0];
 					$_SESSION["Tipo_usuario"]			= $usuario[1];
 					$_SESSION["Nombre"]					= $usuario[2];
@@ -142,8 +151,9 @@
 					$_SESSION["Telefono"]				= $usuario[6];
 					$_SESSION["Sexo"]					= $usuario[7];
 					$_SESSION["Estado"]					= $usuario[8];
+					$_SESSION["Id_administrador"] = $admin[0];
 
-					header("Location: ../Views/gestionventros.php");
+					header("Location: ../Views/gestioncentros.php");
 				}
 				elseif($usuario[1]=="Usuario"){
 					#creamos variables de session
@@ -172,7 +182,7 @@
 
 					header("Location: ../Views/gestiondesarrollo.php");
 				}elseif($usuario[1]=="Empleado"){
-					$empleado=empleado::Readid($usuario[0]);
+					$empleado = usuario::consempl($usuario[0]);
 					#creamos variables de session
 					$_SESSION["Id_usuario"]				= $usuario[0];
 					$_SESSION["Tipo_usuario"]			= $usuario[1];
@@ -186,7 +196,6 @@
 					$_SESSION["Id_empleado"]		=$empleado[0];
 
 					header("Location: ../Views/gestioncita.php");
-					echo $_SESSION['Id_empleado'];
 				}
 			}catch(Exception $e){
 				$mensaje=("Lo sentimos, ocurrio un error ".$e->getMessage());

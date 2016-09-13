@@ -9,6 +9,7 @@
 	}
   require_once("../Model/dbconn.php");
 	require_once("../Model/centro_servicio.class.php");
+	// echo $_SESSION["Id_administrador"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,8 +50,8 @@
     <table id="datatable" class="display highlight responsive-table">
       <thead>
         <tr>
+					<th>Codigo</th>
           <th>Administrador</th>
-          <th>Codigo</th>
           <th>Ciudad</th>
           <th>Nombre</th>
           <th>Direccion</th>
@@ -60,13 +61,12 @@
         </tr>
       </thead>
       <tbody>
-      <!--<?php
+      <?php
       $centro = centro_servicio::Readby();
-      //$centro = centro_servicio::ReadbyIdadmin();
       foreach ($centro as $row) {
       echo "<tr>
+								<td>".$row["Id_centro"]."</td>
                 <td>".$row["usuarionombre"]."</td>
-                <td>".$row["Id_centro"]."</td>
                 <td>".$row["ciudadnombre"]."</td>
                 <td>".$row["centronombre"]."</td>
                 <td>".$row["Direccion"]."</td>
@@ -81,15 +81,15 @@
                 </td>
               </tr>";
           }
-         ?>*-->
-         <?php
+         ?>
+         <!-- <?php
       $centro = centro_servicio::ReadAll();
       //$centro = centro_servicio::ReadbyIdadmin();
       foreach ($centro as $row) {
       echo "<tr>
-                <td>".$row["Id_administrador"]."</td>
+              	<td>".$row["Id_administrador"]."</td>
                 <td>".$row["Id_centro"]."</td>
-                <td>".$row["Id_ciudad"]."</td>
+              	<td>".$row["Id_ciudad"]."</td>
                 <td>".$row["Nombre"]."</td>
                 <td>".$row["Direccion"]."</td>
                 <td>".$row["Email"]."</td>
@@ -103,7 +103,7 @@
                 </td>
               </tr>";
           }
-         ?>
+         ?> -->
         </tbody>
     </table>
     <?php include_once("../Model/comp_footer.php"); ?>

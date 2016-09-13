@@ -63,14 +63,14 @@
 			$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
 			//Crear el query que se llevara a cabo
-			$consulta="SELECT usuario.Nombre as 'usuarionombre', Id_centro, ciudad.Nombre as 'ciudadnombre', centro_servicio.Nombre as 'centronombre', Direccion, centro_servicio.Email, centro_servicio.Telefono FROM usuario INNER JOIN administrador ON usuario.Id_usuario = administrador.Id_usuario INNER JOIN centro_servicio ON administrador.Id_administrador = centro_servicio.Id_administrador INNER JOIN ciudad ON centro_servicio.Id_ciudad = ciudad.Id_ciudad";
+			$consulta="SELECT usuario.Nombre as 'usuarionombre', Id_centro, ciudad.Nombre as 'ciudadnombre', centro_servicio.Nombre as 'centronombre', Direccion, centro_servicio.Email, centro_servicio.Telefono FROM usuario INNER JOIN administrador ON usuario.Id_usuario = administrador.Id_usuario INNER JOIN centro_servicio ON administrador.Id_administrador = centro_servicio.Id_administrador INNER JOIN ciudad ON centro_servicio.Id_ciudad = ciudad.Id_ciudad WHERE administrador.Id_administrador = ".$_SESSION['Id_administrador']."";
 			$query=$conexion->prepare($consulta);
 			$query->execute();
 			/*devolver el resultado en un array
 				Fetch: es el resultado que arroja la consulta en forma de vector o matriz
 				segun sea el caso, para consultas donde arroja mas de un dato. el Fetch debe ir acompañado con la palabra ALL.*/
 
-			$resultado=$query->fetch(PDO::FETCH_BOTH);
+			$resultado=$query->fetchALL(PDO::FETCH_BOTH);
 			return $resultado;
 
 			fusion_look_DB::Disconnect();
@@ -90,6 +90,18 @@
 				segun sea el caso, para consultas donde arroja mas de un dato. el Fetch debe ir acompañado con la palabra ALL.
 			*/
 			$resultado=$query->fetch(PDO::FETCH_BOTH);
+			return $resultado;
+
+			fusion_look_DB::Disconnect();
+		}
+		function cenadmin()
+		{
+			$conexion=fusion_look_DB::Connect();
+			$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+			$consulta="SELECT * FROM centro_servicio WHERE Id_administrador=".$_SESSION['Id_administrador']."";
+			$query=$conexion->prepare($consulta);
+			$query->execute();
+			$resultado=$query->fetchALL(PDO::FETCH_BOTH);
 			return $resultado;
 
 			fusion_look_DB::Disconnect();
