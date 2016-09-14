@@ -7,14 +7,8 @@
 
 		header("Location: ../Views/login.php?m=".$mensaje."&t=".$tipo_mensaje);
 	}
-  if ($_SESSION["Tipo_usuario"]!="Administrador") {
-    $mensaje=("Solo los administradores tienen acceso");
-    $tipo_mensaje=("advertencia");
-
-    header("Location: ../Views/login.php?m=".$mensaje."&t=".$tipo_mensaje);
-  }
   require_once("../Model/dbconn.php");
-	require_once("../Model/empleado.class.php");
+	require_once("../Model/tipo_servicio.class.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,7 +25,7 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <!--datatable-->
-		<script type="text/javascript" src="js/jquery-1.12.3.js"></script>
+      <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
       <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
 
       <script>
@@ -48,41 +42,24 @@
       </nav>
     </head>
   	<body>
-    <h1>Gestion de empleados</h1>
+    <h1>Consultar Tipos de Servicio</h1>
     <table id="datatable" class="display">
       <thead>
         <tr>
-          <th>Codigo de empleado</th>
-          <th>Hora de inicio</th>
-          <th>Hora fin</th>
-          <th>Nombre</th>
-          <th>Apellido</th>
-          <th>Email</th>
-          <th>Telefono</th>
-          <th>Sexo</th>
-          <th>Servicio</th>
-          <th>Centro de servicio</th>
+          <th>Codigo Tipo de Servicio</th>
+          <th>Nombre Tipo de Servicio</th>
           <!-- <th>Acciones</th> -->
         </tr>
       </thead>
       <tbody>
       <?php
 
-      $empleado = empleado::Readin();
-      foreach ($empleado as $row) {
+      $tipo = tipo_servicio::ReadAll();
+      foreach ($tipo as $row) {
       echo "<tr>
-                <td>".$row["Id_empleado"]."</td>
-                <td>".$row["Inicio"]."</td>
-                <td>".$row["Fin"]."</td>
-                <td>".$row["nombreusuario"]."</td>
-                <td>".$row["Apellido"]."</td>
-                <td>".$row["Email"]."</td>
-                <td>".$row["Telefono"]."</td>
-                <td>".$row["Sexo"]."</td>
-                <td>".$row["nombreservicio"]."</td>
-                <td>".$row["nombrecentro"]."</td>
-							<!--<td>
-              </td>-->
+                <td>".$row["Id_tipo"]."</td>
+                <td>".$row["Nombre"]."</td>
+              
               </tr>";
       /*echo "<tr>
                 <td>".$row["Id_empleado"]."</td>
@@ -108,27 +85,14 @@
          ?>
         </tbody>
     </table>
-
-	  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-		<script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
-	  <script type="text/javascript">
-	        $(document).ready(function() {
-	        $(".dropdown-button").dropdown();
-	        $(".button-collapse").sideNav();
-	        });
-	  </script>
-		<script type="text/javascript">
-				$(document).ready(function()
-				{
-					<?php
-						if(isset($_GET["msn"]))
-						{
-							echo "swal('".$_GET["msn"]."','','".$_GET["tm"]."');";
-						}
-					 ?>
-				})
-		</script>
 		<?php include '../Model/comp_footer.php'; ?>
   </body>
 
+  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+  <script type="text/javascript">
+        $(document).ready(function() {
+        $(".dropdown-button").dropdown();
+        $(".button-collapse").sideNav();
+        });
+  </script>
 </html>

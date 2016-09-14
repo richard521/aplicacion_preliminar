@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>footer</title>
-  </head>
-  <body>
     <footer class="page-footer  grey darken-2">
           <div class="container">
             <div class="row">
@@ -31,5 +24,3 @@
             </div>
           </div>
         </footer>
-  </body>
-</html>

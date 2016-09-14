@@ -15,8 +15,10 @@
 	require_once("../Model/dbconn.php");
 	require_once("../Model/centro_servicio.class.php");
 	include ("../Model/ciudad.class.php");
+	$origen = centro_servicio::consciudad($_REQUEST["ci"]);
 	$centro = centro_servicio::ReadbyId($_REQUEST["ci"]);
 	$ciudad = ciudad::ReadAll();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,7 +56,7 @@
 								<!--<input type="number" name="Id_ciudad" class="validate" value="<?php echo $centro[1] ?>">
 								<label for="Id_ciudad">Ciudad</label>-->
 								<select name="Id_ciudad" >
-										<option value="<?php echo $centro[2] ?>" readonly></option>
+										<option value="<?php echo $origen[3] ?>"><?php echo $ciudad[1]; ?></option>
 										<?php
 											foreach ($ciudad as $fila ) {
 												echo'<option value="'.$fila["Id_ciudad"].'">'.$fila["Nombre"].'</option>';
@@ -80,7 +82,7 @@
 								<label for="Telefono">Telefono</label>
 							</div>
 							<br>
-								<a href="pruebahome.php" class="waves-effect waves-light btn red darken-1 left tooltipped" data-tooltip="Volver" data-position="top">Cancelar</a>
+								<a href="gestioncentros.php" class="waves-effect waves-light btn red darken-1 left tooltipped" data-tooltip="Volver" data-position="top">Cancelar</a>
 								<button class="waves-effect waves-light  btn right cyan darken-1 tooltipped" data-tooltip="Modificar" data-position="top" name="acc" value="U">Enviar</button>
 							</div>
 						</article>

@@ -56,6 +56,19 @@
 
 			fusion_look_DB::Disconnect();
 		}
+		function consciudad($Id_centro)
+		{
+
+			$conexion=fusion_look_DB::Connect();
+			$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+			$consulta="SELECT centro_servicio.Id_centro, ciudad.Nombre as nombre, ciudad.Id_ciudad FROM ciudad INNER JOIN centro_servicio ON ciudad.Id_ciudad=centro_servicio.Id_ciudad WHERE centro_servicio.Id_centro=?";
+			$query=$conexion->prepare($consulta);
+			$query->execute(array($Id_centro));
+			$resultado=$query->fetchALL(PDO::FETCH_BOTH);
+			return $resultado;
+
+			fusion_look_DB::Disconnect();
+		}
 		function Readby()
 		{
 			//Instanciamos y hacemos conexion a la base de datos(fusion_look)

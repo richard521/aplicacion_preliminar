@@ -9,6 +9,8 @@
   }
   require_once("../Model/dbconn.php");
   require_once("../Model/servicio.class.php");
+  require_once("../Model/centro_servicio.class.php");
+  require_once("../Model/tipo_servicio.class.php");
   $servicio = servicio::ReadbyId($_REQUEST["si"]);
 ?>
 <!DOCTYPE html>
@@ -36,17 +38,30 @@
           <h3>Actualizar servicio</h3>
             <article>
               <div class="input-field col s12">
-                <input type="number" name="Id_servicio" class="validate" value="<?php echo $servicio[0] ?>" readonly>
-                <label for="Id_servicio">Id servicio</label>
+                <input type="number" name="Id_servicio" class="validate" value="<?php echo $servicio[0] ?>" hidden>
               </div>
               <div class="input-field col s12">
-                <input type="number" name="Id_centro" class="validate" value="<?php echo $servicio[1] ?>" >
-                <label for="Id_centro">Centro de servicio</label>
-              </div>
+								<select name="Id_centro" >
+										<?php
+											$centro = centro_servicio::cenadmin();
+											foreach ($centro as $fila ) {
+												echo'<option value="'.$fila["Id_centro"].'">'.$fila["Nombre"].'</option>';
+											}
+										?>
+								</select>
+								<label>Centro de Servicio</label>
+							</div>
               <div class="input-field col s12">
-                <input type="number" name="Id_tipo" class="validate" value="<?php echo $servicio[2] ?>">
-                <label for="Id_tipo">Tipo de servicio</label>
-              </div>
+								<select name="Id_tipo" >
+										<?php
+											$tipo = tipo_servicio::ReadAll();
+											foreach ($tipo as $fila ) {
+												echo'<option value="'.$fila["Id_tipo"].'">'.$fila["Nombre"].'</option>';
+											}
+										?>
+								</select>
+								<label>Centro de Servicio</label>
+							</div>
               <div class="input-field col s12">
                 <input type="text" name="Nombre" class="validate" value="<?php echo $servicio[3] ?>" >
                 <label for="Nombre">Nombre servicio</label>
@@ -67,6 +82,11 @@
       <script type="text/javascript" src="js/jquery-1.12.3.js"></script>
       <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
       <script src="sweetalert/sweetalert-master/dist/sweetalert.min.js"></script>
+      <script type="text/javascript">
+  	  	$(document).ready(function() {
+      	$('select').material_select();
+    		});
+  	  </script>
       <?php include '../Model/comp_footer.php'; ?>
 </body>
 </html>

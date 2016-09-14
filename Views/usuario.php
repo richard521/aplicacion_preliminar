@@ -140,7 +140,7 @@
 	  			<?php
 	  				if(isset($_GET["msn"]))
 	  				{
-	  					echo "swal('".$_GET["msn"]."','','error');";
+	  					echo "swal('".$_GET["msn"]."','','".$_GET["tm"]."');";
 	  				}
 	  			 ?>
 	  		})

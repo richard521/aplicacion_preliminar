@@ -116,4 +116,15 @@
       $('select').material_select();
       });
       </script>
+			<script type="text/javascript">
+		  		$(document).ready(function()
+		  		{
+		  			<?php
+		  				if(isset($_GET["msn"]))
+		  				{
+		  					echo "swal('".$_GET["msn"]."','','".$_GET["tm"]."');";
+		  				}
+		  			 ?>
+		  		})
+		  </script>
 </html>

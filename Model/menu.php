@@ -68,7 +68,7 @@
         </ul>
         <ul id="tiposer" class="dropdown-content grey darken-1"style="margin-top: 64px;">
             <li><a href="tipo_servicio.php"style="color: white;">Crear</a></li>
-            <li><a href="#"style="color: white;">Consultar</a></li>
+            <li><a href="gestiontipo.php"style="color: white;">Consultar</a></li>
         </ul>
         <ul id="perfil" class="dropdown-content grey darken-1"style="margin-top: 64px;">
             <li><a href="#"style="color: white;"><?php echo($_SESSION["Tipo_usuario"]).": ".($_SESSION["Nombre"])." "?></a></li>

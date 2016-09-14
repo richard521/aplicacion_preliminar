@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set("America/Bogota");
 	session_start();
 
 	if($_SESSION["Tipo_usuario"] != "Administrador"){
@@ -72,7 +73,7 @@
 							</div>
 							<div class="time col s12">
 								<label for="">Hora inicio</label>
-								<input type="time" name="inicio" value="">
+								<input type="time" name="inicio" value="<?php echo date('H:i');?>">
 								<label for="">Hora fin</label>
 								<input type="time" name="fin" value="">
 							</div>

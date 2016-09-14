@@ -2,7 +2,7 @@
 	# ->Class: servicio
 	# ->Method(s): Create(), ReadAll(), Update(), Delete()
 	#Author: Londoño Ochoa
-	
+
 	class servicio{
 		function create($Id_centro,$Id_tipo,$Nombre)
 		{
@@ -51,6 +51,18 @@
 				segun sea el caso, para consultas donde arroja mas de un dato. el Fetch debe ir acompañado con la palabra ALL.
 			*/
 			$resultado=$query->fetch(PDO::FETCH_BOTH);
+			return $resultado;
+
+			fusion_look_DB::Disconnect();
+		}
+		function innerser()
+		{
+			$conexion=fusion_look_DB::connect();
+			$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+			$consulta="SELECT servicio.Id_servicio, servicio.Nombre as servicio,centro_servicio.nombre as centro, tipo_servicio.Nombre as tipo FROM tipo_servicio INNER JOIN servicio ON tipo_servicio.Id_tipo = servicio.Id_tipo INNER JOIN centro_servicio ON servicio.Id_centro = centro_servicio.Id_centro INNER JOIN administrador ON centro_servicio.Id_administrador=administrador.Id_administrador WHERE administrador.Id_administrador = ".$_SESSION['Id_administrador']."";
+			$query=$conexion->prepare($consulta);
+			$query->execute(array());
+			$resultado=$query->fetchALL(PDO::FETCH_BOTH);
 			return $resultado;
 
 			fusion_look_DB::Disconnect();
